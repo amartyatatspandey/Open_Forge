@@ -1,0 +1,114 @@
+# configs/default.yaml
+# Locked model: YOLOv8n-DocLayNet (Phase 1 DLA) — see eval/spike/SPIKE_RESULTS.md
+
+canonical_units:
+  voltage: V
+  current: mA
+  resistance: Ω
+  capacitance: pF
+  frequency: MHz
+  temperature: °C
+  time: ns
+
+sanity_ranges:
+  V_CC:
+    type: voltage
+    min: 0.5
+    max: 40.0
+  I_CC:
+    type: current
+    min: 0.001
+    max: 5000.0
+  T_J:
+    type: temperature
+    min: -55.0
+    max: 175.0
+
+confidence_thresholds:
+  block_extraction: 0.70
+  warn_downstream: 0.85
+  require_approval: 0.60
+
+models:
+  dla_model_path: models/yolov8_doclaynets.pt
+  qwen2_vl_path: models/Qwen2-VL-7B-Instruct
+  local_llm_path: models/Qwen2.5-7B-Instruct
+  device: cpu
+  batch_size: 4
+
+pipeline:
+  phase1_output_dir: output/phase1
+  phase2_output_dir: output/phase2
+  phase3_output_dir: output/phase3
+  phase4_output_dir: output/phase4
+  log_file: logs/pipeline.log
+  log_level: INFO
+  pdf_dpi: 300
+  pdf_fmt: png
+
+phase1_dla:
+  detection_confidence_min: 0.55
+  table_iou_merge_threshold: 0.30
+  table_width_match_tolerance: 0.15
+  min_table_area_ratio: 0.04
+  max_spec_page: 15
+  expected_abs_max_printed_page: 5
+  max_tables_per_section:
+    electrical_characteristics: 1
+    absolute_maximum_ratings: 1
+    pinout: 1
+    timing: 1
+    ordering: 1
+    other: 0
+  footnote_ocr_engine: tesseract
+  section_keywords:
+    electrical_characteristics:
+      - electrical characteristics
+      - electrical specs
+    absolute_maximum_ratings:
+      - absolute maximum
+      - abs max
+    pinout:
+      - pinout
+      - pin configuration
+      - pin functions
+      - pin definition
+    timing:
+      - timing characteristics
+      - switching characteristics
+    ordering:
+      - ordering information
+      - order information
+
+phase2_tsr:
+  vector_timeout_sec: 5
+  vlm_timeout_sec: 60
+  parallel_workers: 2
+  camelot_flavor: lattice
+  min_grid_rows: 2
+  min_grid_cols: 2
+  vector_source_bonus: 0.10
+  max_empty_cell_ratio: 0.50
+  vlm_enabled: false
+
+phase3_extract:
+  llm_enabled: false
+  min_parameter_confidence: 0.70
+
+golden_corpus:
+  target_count: 5
+  completed: 5
+  pending: []
+  completed_ids:
+    - TI_SN74LVC1G04
+    - TI_TLV7021
+    - TI_INA219
+    - TI_LM5176
+    - TI_TPS62933
+  archived_ids:
+    - TI_TMS320F280039C
+  selection_criteria:
+    - analog or power management IC only
+    - single unified electrical characteristics table
+    - pinout under 30 pins preferred
+    - no MCUs DSPs or FPGAs

@@ -1,0 +1,158 @@
+{
+  "component_id": "SN74LVC1G04DBVR",
+  "manufacturer": "Texas Instruments",
+  "package": "SOT-23-5",
+  "datasheet_version": "SCES560I",
+  "extraction_timestamp": "2025-07-15T10:00:00Z",
+  "sections": [
+    {
+      "section_type": "absolute_maximum_ratings",
+      "section_heading": "6.1 Absolute Maximum Ratings",
+      "page_range": [4, 4],
+      "table_confidence": 0.98,
+      "parameters": [],
+      "abs_max_ratings": [
+        {
+          "name": "V_CC",
+          "max_value": {
+            "raw_text": "6.5",
+            "value": 6.5,
+            "unit": "V",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "unit": "V",
+          "note": "Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage."
+        },
+        {
+          "name": "I_OK",
+          "max_value": {
+            "raw_text": "±50",
+            "value": 50.0,
+            "unit": "mA",
+            "confidence": 0.97,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "unit": "mA",
+          "conditions": "Output current"
+        }
+      ],
+      "pins": []
+    },
+    {
+      "section_type": "electrical_characteristics",
+      "section_heading": "6.5 Electrical Characteristics",
+      "page_range": [5, 5],
+      "table_confidence": 0.96,
+      "parameters": [
+        {
+          "name": "V_CC",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "1.65",
+            "value": 1.65,
+            "unit": "V",
+            "confidence": 0.97,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": null,
+          "max_value": {
+            "raw_text": "5.5",
+            "value": 5.5,
+            "unit": "V",
+            "confidence": 0.97,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "T_A = -40°C to +125°C"
+        },
+        {
+          "name": "V_IH",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": null,
+          "max_value": {
+            "raw_text": "1.7",
+            "value": 1.7,
+            "unit": "V",
+            "confidence": 0.95,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "V_CC = 1.65 V to 5.5 V"
+        },
+        {
+          "name": "V_IL",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": null,
+          "max_value": {
+            "raw_text": "0.7",
+            "value": 0.7,
+            "unit": "V",
+            "confidence": 0.95,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "V_CC = 1.65 V to 5.5 V"
+        }
+      ],
+      "abs_max_ratings": [],
+      "pins": []
+    },
+    {
+      "section_type": "pinout",
+      "section_heading": "5 Pin Configuration and Functions",
+      "page_range": [3, 3],
+      "table_confidence": 0.99,
+      "parameters": [],
+      "abs_max_ratings": [],
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "A",
+          "pin_type": "digital_input",
+          "alternate_functions": [],
+          "description": "Gate input"
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "GND",
+          "pin_type": "ground",
+          "alternate_functions": [],
+          "description": "Ground"
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "Y",
+          "pin_type": "digital_output",
+          "alternate_functions": [],
+          "description": "Gate output"
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "V_CC",
+          "pin_type": "power",
+          "alternate_functions": [],
+          "description": "Positive supply"
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "NC",
+          "pin_type": "no_connect",
+          "alternate_functions": [],
+          "description": "No internal connection"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "review_required": false
+  }
+}

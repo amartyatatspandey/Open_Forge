@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drdo-p1-parser"
+version = "0.1.0"
+description = "Automated datasheet parsing pipeline for air-gapped defense EDA"
+authors = [{name = "DRDO Team", email = "team@drdo.gov.in"}]
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    # PDF processing
+    "pdf2image>=1.16.0",
+    "pdfplumber>=0.9.0",
+    "camelot-py>=0.10.1",
+
+    # Data validation & structuring
+    "pydantic>=2.0.0",
+    "instructor>=1.2.0",
+
+    # ML/Vision (offline)
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "ultralytics>=8.0.0",
+    "transformers>=4.30.0",
+    "huggingface_hub>=0.23.0",
+    "hf_transfer>=0.1.8",
+
+    # Utilities
+    "opencv-python>=4.8.0",
+    "numpy>=1.24.0",
+    "pillow>=10.0.0",
+    "pyyaml>=6.0",
+
+    # Development
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "pylint>=2.17.0",
+    "mypy>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "pylint>=2.17.0",
+    "mypy>=1.0.0",
+    "types-PyYAML>=6.0.0",
+    "ipython>=8.0.0",
+]
+
+[project.urls]
+Repository = "https://github.com/drdo/p1-parser"
+Documentation = "https://github.com/drdo/p1-parser/blob/main/README.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311"]
+
+[tool.pylint.messages_control]
+disable = [
+    "C0111",
+    "R0913",
+    "R0902",
+    "C0103",
+    "W0603",
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests (require PDFs and model weights)",
+]

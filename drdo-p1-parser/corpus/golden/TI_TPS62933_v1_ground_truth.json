@@ -1,0 +1,1240 @@
+{
+  "component_id": "TI_TPS62933",
+  "manufacturer": "Texas Instruments",
+  "package": "SOT583 (DRL) 8-pin, 1.60mm x 2.10mm",
+  "sections": [
+    {
+      "section_type": "absolute_maximum_ratings",
+      "page_range": [
+        5,
+        5
+      ],
+      "abs_max": [
+        {
+          "name": "VIN",
+          "raw_text": "-0.3 to 32 V",
+          "min_value": {
+            "raw_text": "-0.3 V",
+            "value": -0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "32 V",
+            "value": 32.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "Input voltage pin"
+        },
+        {
+          "name": "EN",
+          "raw_text": "-0.3 to 6 V",
+          "min_value": {
+            "raw_text": "-0.3 V",
+            "value": -0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "6 V",
+            "value": 6.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "Enable pin voltage"
+        },
+        {
+          "name": "FB",
+          "raw_text": "-0.3 to 6 V",
+          "min_value": {
+            "raw_text": "-0.3 V",
+            "value": -0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "6 V",
+            "value": 6.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "Feedback pin voltage"
+        },
+        {
+          "name": "SW_DC",
+          "raw_text": "-0.3 to 32 V",
+          "min_value": {
+            "raw_text": "-0.3 V",
+            "value": -0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "32 V",
+            "value": 32.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "SW pin DC voltage"
+        },
+        {
+          "name": "SW_transient",
+          "raw_text": "-3 to 33 V",
+          "min_value": {
+            "raw_text": "-3 V",
+            "value": -3.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "33 V",
+            "value": 33.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "SW pin transient < 10 ns"
+        },
+        {
+          "name": "BST",
+          "raw_text": "-0.3 to SW + 6 V",
+          "min_value": {
+            "raw_text": "-0.3 V",
+            "value": -0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "SW + 6 V",
+            "value": null,
+            "unit": "V",
+            "confidence": 0.97,
+            "source": "page_5"
+          },
+          "conditions": "BST pin absolute voltage"
+        },
+        {
+          "name": "BST_SW_differential",
+          "raw_text": "-0.3 to 6 V",
+          "min_value": {
+            "raw_text": "-0.3 V",
+            "value": -0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "6 V",
+            "value": 6.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "BST–SW differential voltage"
+        },
+        {
+          "name": "SS_PG",
+          "raw_text": "-0.3 to 6 V",
+          "min_value": {
+            "raw_text": "-0.3 V",
+            "value": -0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "6 V",
+            "value": 6.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "SS/PG pin voltage"
+        },
+        {
+          "name": "RT",
+          "raw_text": "-0.3 to 6 V",
+          "min_value": {
+            "raw_text": "-0.3 V",
+            "value": -0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "6 V",
+            "value": 6.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "RT pin voltage"
+        },
+        {
+          "name": "TJ",
+          "raw_text": "-40 to 150 °C",
+          "min_value": {
+            "raw_text": "-40 °C",
+            "value": -40.0,
+            "unit": "°C",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "150 °C",
+            "value": 150.0,
+            "unit": "°C",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "Operating junction temperature"
+        },
+        {
+          "name": "Tstg",
+          "raw_text": "-65 to 150 °C",
+          "min_value": {
+            "raw_text": "-65 °C",
+            "value": -65.0,
+            "unit": "°C",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "max_value": {
+            "raw_text": "150 °C",
+            "value": 150.0,
+            "unit": "°C",
+            "confidence": 0.99,
+            "source": "page_5"
+          },
+          "conditions": "Storage temperature"
+        }
+      ],
+      "section_heading": "6.3 Absolute Maximum Ratings",
+      "table_confidence": 0.98,
+      "parameters": [],
+      "abs_max_ratings": [],
+      "pins": []
+    },
+    {
+      "section_type": "electrical_characteristics",
+      "page_range": [
+        6,
+        8
+      ],
+      "parameters": [
+        {
+          "name": "VIN_operation",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "3.8 V",
+            "value": 3.8,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": null,
+          "max_value": {
+            "raw_text": "30 V",
+            "value": 30.0,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Operation input voltage range"
+        },
+        {
+          "name": "IQ_TPS62933",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "12 µA",
+            "value": 0.012,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Nonswitching quiescent current, EN=5V, VFB=0.85V, TPS62932/TPS62933/TPS62933P"
+        },
+        {
+          "name": "IQ_TPS62933F",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "125 µA",
+            "value": 0.125,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Nonswitching quiescent current, EN=5V, VFB=1V, TPS62933F"
+        },
+        {
+          "name": "IQ_TPS62933O",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "45 µA",
+            "value": 0.045,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Nonswitching quiescent current, EN=5V, VFB=1V, TPS62933O"
+        },
+        {
+          "name": "ISHDN",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "2 µA",
+            "value": 0.002,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Shutdown supply current, VEN=0V"
+        },
+        {
+          "name": "VIN_UVLO_rising",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "3.4 V",
+            "value": 3.4,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "3.6 V",
+            "value": 3.6,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "3.8 V",
+            "value": 3.8,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Input undervoltage lockout rising threshold"
+        },
+        {
+          "name": "VIN_UVLO_falling",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "3.1 V",
+            "value": 3.1,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "3.3 V",
+            "value": 3.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "3.5 V",
+            "value": 3.5,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Input undervoltage lockout falling threshold"
+        },
+        {
+          "name": "VIN_UVLO_hysteresis",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "300 mV",
+            "value": 0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "UVLO hysteresis"
+        },
+        {
+          "name": "VEN_RISE",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "1.21 V",
+            "value": 1.21,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": null,
+          "max_value": {
+            "raw_text": "1.28 V",
+            "value": 1.28,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Enable rising threshold"
+        },
+        {
+          "name": "VEN_FALL",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "1.1 V",
+            "value": 1.1,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": null,
+          "max_value": {
+            "raw_text": "1.17 V",
+            "value": 1.17,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Enable falling (disable) threshold"
+        },
+        {
+          "name": "Ip_EN_pullup",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "0.7 µA",
+            "value": 0.0007,
+            "unit": "mA",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "EN pullup current, VEN=1.0V"
+        },
+        {
+          "name": "Ih_EN_hysteresis",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "1.4 µA",
+            "value": 0.0014,
+            "unit": "mA",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "EN pullup hysteresis current, VEN=1.5V"
+        },
+        {
+          "name": "VFB_25C",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "792 mV",
+            "value": 0.792,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "800 mV",
+            "value": 0.8,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "808 mV",
+            "value": 0.808,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "FB voltage reference, TJ=25°C"
+        },
+        {
+          "name": "VFB_0_85C",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "788 mV",
+            "value": 0.788,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "800 mV",
+            "value": 0.8,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "812 mV",
+            "value": 0.812,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "FB voltage reference, TJ=0°C to 85°C"
+        },
+        {
+          "name": "VFB_full_temp",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "784 mV",
+            "value": 0.784,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "800 mV",
+            "value": 0.8,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "816 mV",
+            "value": 0.816,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "FB voltage reference, TJ=-40°C to 150°C"
+        },
+        {
+          "name": "IFB_leakage",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "0.15 µA",
+            "value": 0.00015,
+            "unit": "mA",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "FB input leakage current, VFB=0.8V"
+        },
+        {
+          "name": "RDSON_HS",
+          "parameter_type": "resistance",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "76 mΩ",
+            "value": 0.076,
+            "unit": "Ω",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "High-side MOSFET on-resistance, TJ=25°C, VBST-SW=5V"
+        },
+        {
+          "name": "RDSON_LS",
+          "parameter_type": "resistance",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "32 mΩ",
+            "value": 0.032,
+            "unit": "Ω",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Low-side MOSFET on-resistance, TJ=25°C"
+        },
+        {
+          "name": "IHS_LIMIT_TPS62933",
+          "parameter_type": "current",
+          "min_value": {
+            "raw_text": "4.2 A",
+            "value": 4200.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "5 A",
+            "value": 5000.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "5.8 A",
+            "value": 5800.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "High-side MOSFET current limit, TPS62933 and TPS62933x"
+        },
+        {
+          "name": "IHS_LIMIT_TPS62932",
+          "parameter_type": "current",
+          "min_value": {
+            "raw_text": "2.8 A",
+            "value": 2800.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "3.4 A",
+            "value": 3400.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "4 A",
+            "value": 4000.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "High-side MOSFET current limit, TPS62932"
+        },
+        {
+          "name": "ILS_LIMIT_TPS62933",
+          "parameter_type": "current",
+          "min_value": {
+            "raw_text": "2.9 A",
+            "value": 2900.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "3.8 A",
+            "value": 3800.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "4.5 A",
+            "value": 4500.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Low-side MOSFET current limit, TPS62933 and TPS62933x"
+        },
+        {
+          "name": "ILS_LIMIT_TPS62932",
+          "parameter_type": "current",
+          "min_value": {
+            "raw_text": "2 A",
+            "value": 2000.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "2.5 A",
+            "value": 2500.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "3 A",
+            "value": 3000.0,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Low-side MOSFET current limit, TPS62932"
+        },
+        {
+          "name": "ILS_NOC",
+          "parameter_type": "current",
+          "min_value": {
+            "raw_text": "1.2 A",
+            "value": 1200.0,
+            "unit": "mA",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "2.4 A",
+            "value": 2400.0,
+            "unit": "mA",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "3.6 A",
+            "value": 3600.0,
+            "unit": "mA",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Reverse current limit, TPS62933F only"
+        },
+        {
+          "name": "IPEAK_MIN_TPS62933",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "0.75 A",
+            "value": 750.0,
+            "unit": "mA",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Minimum peak inductor current, TPS62933/TPS62933P/TPS62933O"
+        },
+        {
+          "name": "IPEAK_MIN_TPS62932",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "0.53 A",
+            "value": 530.0,
+            "unit": "mA",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Minimum peak inductor current, TPS62932"
+        },
+        {
+          "name": "ISS",
+          "parameter_type": "current",
+          "min_value": {
+            "raw_text": "4.5 µA",
+            "value": 0.0045,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "5.5 µA",
+            "value": 0.0055,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "6.5 µA",
+            "value": 0.0065,
+            "unit": "mA",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Soft-start charge current, TPS62932/TPS62933/TPS62933F"
+        },
+        {
+          "name": "TSS_fixed",
+          "parameter_type": "time",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "2 ms",
+            "value": 2000000.0,
+            "unit": "ns",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Fixed internal soft-start time, TPS62933P and TPS62933O"
+        },
+        {
+          "name": "VPGTH_falling_low",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "85%",
+            "value": 85.0,
+            "unit": "%VFB",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "PG threshold VFB falling, PG high to low"
+        },
+        {
+          "name": "VPGTH_rising_high",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "90%",
+            "value": 90.0,
+            "unit": "%VFB",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "PG threshold VFB rising, PG low to high"
+        },
+        {
+          "name": "VPGTH_falling_high",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "110%",
+            "value": 110.0,
+            "unit": "%VFB",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "PG threshold VFB falling, PG low to high"
+        },
+        {
+          "name": "VPGTH_rising_low",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "115%",
+            "value": 115.0,
+            "unit": "%VFB",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "PG threshold VFB rising, PG high to low"
+        },
+        {
+          "name": "TPG_R",
+          "parameter_type": "time",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "70 µs",
+            "value": 70000.0,
+            "unit": "ns",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "PG delay time, PG from low to high"
+        },
+        {
+          "name": "TPG_F",
+          "parameter_type": "time",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "18 µs",
+            "value": 18000.0,
+            "unit": "ns",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "PG delay time, PG from high to low"
+        },
+        {
+          "name": "VPG_OL",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": null,
+          "max_value": {
+            "raw_text": "0.3 V",
+            "value": 0.3,
+            "unit": "V",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "PG output low-level voltage, IPG=0.5mA"
+        },
+        {
+          "name": "fSW_RT_float",
+          "parameter_type": "frequency",
+          "min_value": {
+            "raw_text": "450 kHz",
+            "value": 0.45,
+            "unit": "MHz",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "500 kHz",
+            "value": 0.5,
+            "unit": "MHz",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "550 kHz",
+            "value": 0.55,
+            "unit": "MHz",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Switching frequency, RT=floating"
+        },
+        {
+          "name": "fSW_RT_GND",
+          "parameter_type": "frequency",
+          "min_value": {
+            "raw_text": "1000 kHz",
+            "value": 1.0,
+            "unit": "MHz",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "1200 kHz",
+            "value": 1.2,
+            "unit": "MHz",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "1350 kHz",
+            "value": 1.35,
+            "unit": "MHz",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Switching frequency, RT=GND"
+        },
+        {
+          "name": "fSW_71k5",
+          "parameter_type": "frequency",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "310 kHz",
+            "value": 0.31,
+            "unit": "MHz",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Switching frequency, RT=71.5kΩ"
+        },
+        {
+          "name": "fSW_9k09",
+          "parameter_type": "frequency",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "2100 kHz",
+            "value": 2.1,
+            "unit": "MHz",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Switching frequency, RT=9.09kΩ"
+        },
+        {
+          "name": "tON_MIN",
+          "parameter_type": "time",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "70 ns",
+            "value": 70.0,
+            "unit": "ns",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Minimum ON pulse width (not production tested, specified by design)"
+        },
+        {
+          "name": "tOFF_MIN",
+          "parameter_type": "time",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "140 ns",
+            "value": 140.0,
+            "unit": "ns",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Minimum OFF pulse width (not production tested, specified by design)"
+        },
+        {
+          "name": "tON_MAX",
+          "parameter_type": "time",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "7 µs",
+            "value": 7000.0,
+            "unit": "ns",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Maximum ON pulse width (not production tested, specified by design)"
+        },
+        {
+          "name": "VOVP_rising",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "112%",
+            "value": 112.0,
+            "unit": "%VREF",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": {
+            "raw_text": "115%",
+            "value": 115.0,
+            "unit": "%VREF",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "118%",
+            "value": 118.0,
+            "unit": "%VREF",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Output OVP threshold, OVP detect rising"
+        },
+        {
+          "name": "VOVP_hysteresis",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "5%",
+            "value": 5.0,
+            "unit": "%VREF",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "OVP hysteresis"
+        },
+        {
+          "name": "VUVP",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "65%",
+            "value": 65.0,
+            "unit": "%VREF",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Output UVP threshold, UVP detect falling"
+        },
+        {
+          "name": "TSHDN",
+          "parameter_type": "temperature",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "165 °C",
+            "value": 165.0,
+            "unit": "°C",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Thermal shutdown temperature (not production tested, specified by design)"
+        },
+        {
+          "name": "THYS",
+          "parameter_type": "temperature",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "30 °C",
+            "value": 30.0,
+            "unit": "°C",
+            "confidence": 0.99,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Thermal shutdown hysteresis (not production tested, specified by design)"
+        },
+        {
+          "name": "fspread",
+          "parameter_type": "frequency",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "±6%",
+            "value": 6.0,
+            "unit": "%fSW",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": null,
+          "conditions": "Internal spread spectrum oscillator frequency deviation"
+        }
+      ],
+      "section_heading": "6.5 Electrical Characteristics",
+      "table_confidence": 0.97,
+      "abs_max_ratings": [],
+      "pins": []
+    },
+    {
+      "section_type": "pinout",
+      "page_range": [
+        3,
+        4
+      ],
+      "pins": [],
+      "section_heading": "5 Pin Configuration and Functions",
+      "table_confidence": 0.96,
+      "parameters": [],
+      "abs_max_ratings": []
+    }
+  ],
+  "pins": [
+    {
+      "pin_number": "1",
+      "pin_name": "RT",
+      "pin_type": "A",
+      "description": "Frequency programming input. Float for 500kHz, tie to GND for 1.2MHz, or connect to an RT timing resistor for 200kHz–2.2MHz range. Frequency is latched at first enable."
+    },
+    {
+      "pin_number": "2",
+      "pin_name": "EN",
+      "pin_type": "A",
+      "description": "Enable input. Driving high or leaving floating enables the converter. An external resistor divider can implement adjustable VIN UVLO. Has internal pullup current of 0.7µA."
+    },
+    {
+      "pin_number": "3",
+      "pin_name": "VIN",
+      "pin_type": "P",
+      "description": "Supply input pin to internal LDO and high-side FET. Input bypass capacitors must be connected directly to this pin and GND."
+    },
+    {
+      "pin_number": "4",
+      "pin_name": "GND",
+      "pin_type": "G",
+      "description": "Ground pin. Connected to source of low-side FET and controller ground. Connect to system ground and ground side of CIN and COUT. Path to CIN must be as short as possible."
+    },
+    {
+      "pin_number": "5",
+      "pin_name": "SW",
+      "pin_type": "P",
+      "description": "Switching output of the converter. Internally connected to source of high-side FET and drain of low-side FET. Connect to the power inductor."
+    },
+    {
+      "pin_number": "6",
+      "pin_name": "BST",
+      "pin_type": "P",
+      "description": "Bootstrap capacitor connection for high-side FET driver. Connect a high-quality 100nF ceramic capacitor from this pin to the SW pin."
+    },
+    {
+      "pin_number": "7",
+      "pin_name": "SS/PG",
+      "pin_type": "A",
+      "description": "Dual-function pin. On TPS62932/TPS62933/TPS62933F: soft-start control, external capacitor sets reference voltage rise time, minimum 6.8nF required, do not float. On TPS62933P/TPS62933O: open-drain power-good indicator, pulled low when output is out of regulation, in OVP, thermal shutdown, EN shutdown, or during soft-start."
+    },
+    {
+      "pin_number": "8",
+      "pin_name": "FB",
+      "pin_type": "A",
+      "description": "Output feedback input. Connect to tap of external resistor divider from output to GND to set output voltage. Internal reference is 0.8V."
+    }
+  ],
+  "metadata": {
+    "datasheet_id": "SLUSEA4D",
+    "revision": "D",
+    "date": "August 2022",
+    "operating_conditions": "TJ=-40°C to +150°C, VIN=3.8V to 30V unless otherwise noted",
+    "footnote_map": {
+      "(1)": "Operation outside Absolute Maximum Ratings may cause permanent device damage. These ratings do not imply functional operation.",
+      "design_note": "tON_MIN, tOFF_MIN, tON_MAX, TSHDN, THYS are not production tested — specified by design.",
+      "variant_note": "TPS62932=2A PFM SS-pin; TPS62933=3A PFM SS-pin; TPS62933F=3A FCCM SS-pin; TPS62933P=3A PFM PG-pin; TPS62933O=3A OOA PG-pin. All share same 8-pin SOT583 footprint."
+    }
+  },
+  "datasheet_version": "SLUSEA4D",
+  "extraction_timestamp": "2025-06-12T14:00:00Z"
+}
