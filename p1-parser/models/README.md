@@ -29,15 +29,15 @@ python scripts/download_models.py --qwen-only
 
 Logs are written to `logs/download.log`.
 2. Build the Docker image: `bash docker/build_airgapped_image.sh`
-3. Export: `docker save drdo-p1-parser:v1.0 | gzip > drdo-p1-parser-v1.0.tar.gz`
+3. Export: `docker save p1-parser:v1.0 | gzip > p1-parser-v1.0.tar.gz`
 4. Transfer the archive via approved media.
 
 ### On air-gapped machine
 
 ```bash
-docker load < drdo-p1-parser-v1.0.tar.gz
+docker load < p1-parser-v1.0.tar.gz
 docker run --gpus all -v /data/datasheets:/input -v /data/output:/output \
-    drdo-p1-parser:v1.0 python -m src.pipeline --input /input --output /output
+    p1-parser:v1.0 python -m src.pipeline --input /input --output /output
 ```
 
 ## Hardware Requirements

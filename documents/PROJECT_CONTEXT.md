@@ -1,4 +1,4 @@
-# DRDO P1 — Project Context (Living Document)
+# Open Forge P1 — Project Context (Living Document)
 
 > **Purpose:** Single attachable context file for Claude Projects, Cursor, and handoffs.
 > **Update rule:** Edit this file at the end of every phase completion (see §2).
@@ -14,8 +14,8 @@
 | **Updated by** | All model weights verified |
 | **Current phase** | Phase 0 — substantially complete; **Phase 1 DLA is next** |
 | **Active work** | Model spike re-run; Phase 1 implementation |
-| **Repo root** | `DRDO/` |
-| **Code root** | `drdo-p1-parser/` |
+| **Repo root** | `open_forge/` |
+| **Code root** | `p1-parser/` |
 
 ### Phase dashboard
 
@@ -85,7 +85,7 @@ Read in this order when implementing:
 | 4 | `documents/QUICK_REFERENCE_PATTERNS.md` | Good/bad patterns cheat sheet |
 | 5 | `documents/problem_1_solution.md` | 4-phase architecture narrative |
 | 6 | `documents/PROJECT_BOOTSTRAP_GUIDE.md` | Scaffolding templates |
-| 7 | `documents/objectives.md` | Six formal DRDO problem statements |
+| 7 | `documents/objectives.md` | Six formal problem statements |
 
 **Superseded:** `documents/p1_assessment.md` — use `_filled` instead.
 
@@ -99,7 +99,7 @@ Read in this order when implementing:
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Project scaffold (`pyproject.toml`, dirs, venv) | ✅ | `drdo-p1-parser/` |
+| Project scaffold (`pyproject.toml`, dirs, venv) | ✅ | `p1-parser/` |
 | `src/config.py` + `configs/default.yaml` | ✅ | Locked model paths, thresholds |
 | `src/schemas/datasheet.py` (output contract) | ✅ | `ComponentDatasheet`, etc. |
 | `src/schemas/pipeline.py` (inter-phase models) | ✅ | `GridMatrix`, `Phase1Output`, … |
@@ -202,7 +202,7 @@ Read in this order when implementing:
 
 ## 6. Code inventory
 
-### Implemented (`drdo-p1-parser/src/`)
+### Implemented (`p1-parser/src/`)
 
 ```
 src/
@@ -247,7 +247,7 @@ corpus/golden/validate_ground_truth.py
 
 ## 7. Model & corpus status
 
-### Model weights (`drdo-p1-parser/models/`)
+### Model weights (`p1-parser/models/`)
 
 | Model | Path | Status | Size |
 |-------|------|--------|------|
@@ -326,14 +326,14 @@ Phase 4 — Validation (physics rules → pass / warn / block)
 ## 10. Key paths
 
 ```
-DRDO/
+open_forge/
 ├── documents/
 │   ├── PROJECT_CONTEXT.md          ← this file (attach to Claude Projects)
 │   ├── p1_assessment_filled.md     ← authoritative spec
 │   ├── problem_1_solution.md
 │   ├── CODING_STANDARDS_P1.md
 │   └── objectives.md
-└── drdo-p1-parser/
+└── p1-parser/
     ├── src/
     ├── corpus/golden/              # 5 PDFs + 5 ground_truth JSON
     ├── corpus/test/                # 25 PDFs (TODO)
@@ -347,7 +347,7 @@ DRDO/
 ### Quick commands
 
 ```bash
-cd drdo-p1-parser && source venv/bin/activate
+cd p1-parser && source venv/bin/activate
 pytest tests/unit/ -v
 python corpus/golden/validate_ground_truth.py
 python scripts/download_models.py --all

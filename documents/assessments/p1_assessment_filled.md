@@ -293,7 +293,7 @@ Phase 4 — Validation
 ### 2d. Orchestration and Project Structure — DEFINED
 
 ```
-drdo-p1-parser/
+p1-parser/
 ├── src/
 │   ├── phase1_dla/
 │   │   ├── rasterize.py          # pdf2image wrapper, 300 DPI, Poppler config
@@ -443,15 +443,15 @@ bash docker/build_airgapped_image.sh
 # 1. Pulls base image (nvidia/cuda:12.1-runtime-ubuntu22.04)
 # 2. pip install -r requirements.txt (offline-installable wheels included)
 # 3. Copies model weights from ./models/ into /app/models/ in image
-# 4. Tags as drdo-p1-parser:v1.0
+# 4. Tags as p1-parser:v1.0
 
-docker save drdo-p1-parser:v1.0 | gzip > drdo-p1-parser-v1.0.tar.gz
+docker save p1-parser:v1.0 | gzip > p1-parser-v1.0.tar.gz
 # Transfer .tar.gz to air-gapped machine via approved media
 
 # Step 2: On air-gapped machine
-docker load < drdo-p1-parser-v1.0.tar.gz
+docker load < p1-parser-v1.0.tar.gz
 docker run --gpus all -v /data/datasheets:/input -v /data/output:/output \
-    drdo-p1-parser:v1.0 python -m src.pipeline --input /input --output /output
+    p1-parser:v1.0 python -m src.pipeline --input /input --output /output
 ```
 
 **Poppler dependency (required by pdf2image, air-gapped):**

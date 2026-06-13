@@ -1,4 +1,4 @@
-# DRDO P1 — Project Context (Living Document)
+# Open Forge P1 — Project Context (Living Document)
 
 > **Purpose:** Single attachable context file for Claude Projects, Cursor, and handoffs.
 > **Update rule:** Edit this file at the end of every phase completion (see §2).
@@ -14,8 +14,8 @@
 | **Updated by** | Phase 4 validation + KiCad export implemented (FPR/FNR eval deferred) |
 | **Current phase** | Phase 4 — **implemented**; pipeline orchestrator + review queue pending |
 | **Active work** | GPU lab Phase 2 eval; grid-level golden GT; `pipeline.py` + review queue |
-| **Repo root** | `DRDO/` |
-| **Code root** | `drdo-p1-parser/` |
+| **Repo root** | `open_forge/` |
+| **Code root** | `p1-parser/` |
 
 ### Phase dashboard
 
@@ -85,7 +85,7 @@ Read in this order when implementing:
 | 4 | `documents/guides/QUICK_REFERENCE_PATTERNS.md` | Good/bad patterns cheat sheet |
 | 5 | `documents/architecture/problem_1_solution.md` | 4-phase architecture narrative |
 | 6 | `documents/guides/PROJECT_BOOTSTRAP_GUIDE.md` | Scaffolding templates |
-| 7 | `documents/objectives.md` | Six formal DRDO problem statements |
+| 7 | `documents/objectives.md` | Six formal problem statements |
 | 8 | `documents/phase1/PHASE1_CORPUS_EVAL_TUNING_LOG.md` | Golden corpus eval tuning history |
 
 **Superseded:** `documents/assessments/p1_assessment.md` — use `_filled` instead.
@@ -102,7 +102,7 @@ Read in this order when implementing:
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Project scaffold (`pyproject.toml`, dirs, venv) | ✅ | `drdo-p1-parser/` |
+| Project scaffold (`pyproject.toml`, dirs, venv) | ✅ | `p1-parser/` |
 | `src/config.py` + `configs/default.yaml` | ✅ | Locked model paths, thresholds |
 | `src/schemas/datasheet.py` (output contract) | ✅ | `ComponentDatasheet`, etc. |
 | `src/schemas/pipeline.py` (inter-phase models) | ✅ | `GridMatrix`, `Phase1Output`, … |
@@ -151,7 +151,7 @@ Read in this order when implementing:
 | LM5176 | 100% | 100% | 100% | 100% |
 | TPS62933 | 100% | 100% | 100% | 100% |
 
-Report: `drdo-p1-parser/eval/phase1/PHASE1_RESULTS.md`
+Report: `p1-parser/eval/phase1/PHASE1_RESULTS.md`
 
 ---
 
@@ -247,7 +247,7 @@ Report: `drdo-p1-parser/eval/phase1/PHASE1_RESULTS.md`
 
 ## 6. Code inventory
 
-### Implemented (`drdo-p1-parser/src/`)
+### Implemented (`p1-parser/src/`)
 
 ```
 src/
@@ -302,7 +302,7 @@ corpus/golden/validate_ground_truth.py
 
 ## 7. Model & corpus status
 
-### Model weights (`drdo-p1-parser/models/`)
+### Model weights (`p1-parser/models/`)
 
 | Model | Path | Status | Size |
 |-------|------|--------|------|
@@ -385,7 +385,7 @@ Phase 4 — Validation (physics rules → pass / warn / block)
 ## 10. Key paths
 
 ```
-DRDO/
+open_forge/
 ├── documents/
 │   ├── README.md                   ← documents index
 │   ├── objectives.md
@@ -400,7 +400,7 @@ DRDO/
 │   └── phase1/
 │       ├── CURSOR_PROMPT_PHASE1.md
 │       └── PHASE1_CORPUS_EVAL_TUNING_LOG.md
-└── drdo-p1-parser/
+└── p1-parser/
     ├── src/
     ├── corpus/golden/              # 5 PDFs + 5 ground_truth JSON
     ├── corpus/test/                # 25 PDFs (TODO)
@@ -414,7 +414,7 @@ DRDO/
 ### Quick commands
 
 ```bash
-cd drdo-p1-parser && source venv/bin/activate
+cd p1-parser && source venv/bin/activate
 pytest tests/unit/ -v
 python corpus/golden/validate_ground_truth.py
 python scripts/download_models.py --all

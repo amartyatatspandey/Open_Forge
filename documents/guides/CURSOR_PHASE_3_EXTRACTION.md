@@ -2,7 +2,7 @@
 
 ## Context
 
-You are implementing **Phase 3: Constrained Semantic Extraction** for the DRDO P1 Datasheet Parser. Your goal is to transform structured grids (from Phase 2) into validated, normalized, machine-readable electrical component data.
+You are implementing **Phase 3: Constrained Semantic Extraction** for the Open Forge P1 Datasheet Parser. Your goal is to transform structured grids (from Phase 2) into validated, normalized, machine-readable electrical component data.
 
 **Authority documents:**
 - `documents/p1_assessment_filled.md` — full spec (§2b schema, §3 unit normalization, §3 table-type prompts)

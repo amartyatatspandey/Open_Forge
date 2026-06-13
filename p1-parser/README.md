@@ -2,7 +2,7 @@
 
 > **Living status:** [`../documents/architecture/PROJECT_CONTEXT.md`](../documents/architecture/PROJECT_CONTEXT.md) — update on every phase completion.
 
-Automated datasheet parsing pipeline for air-gapped PCB design systems (SSPL DRDO).
+Automated datasheet parsing pipeline for air-gapped PCB design systems (Open Forge).
 
 Extracts electrical characteristics, absolute maximum ratings, and pinouts from Texas Instruments PDF datasheets into validated, machine-readable JSON for downstream KiCad MCP integration.
 
@@ -47,7 +47,7 @@ Phase 1 eval tuning log: [`../documents/phase1/PHASE1_CORPUS_EVAL_TUNING_LOG.md`
 ## Installation
 
 ```bash
-cd drdo-p1-parser
+cd p1-parser
 python3 -m venv venv
 source venv/bin/activate
 pip install -e ".[dev]"
@@ -63,7 +63,7 @@ pytest tests/unit/ -v
 ## Directory Layout
 
 ```
-drdo-p1-parser/
+p1-parser/
 ├── src/
 │   ├── config.py              # Single source of truth for settings
 │   ├── schemas/               # Pydantic models (output contract)

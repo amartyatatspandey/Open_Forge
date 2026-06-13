@@ -42,7 +42,7 @@ Lab system (GPU, later)
 
 2. **Copy outputs back to MacBook**
    ```bash
-   scp -r user@lab:drdo-p1-parser/eval/phase2/golden_phase2_outputs/ ./eval/phase2/
+   scp -r user@lab:p1-parser/eval/phase2/golden_phase2_outputs/ ./eval/phase2/
    ```
 
 3. **Update Phase 3 + 4 to use real data** (just 1 line change per file)
@@ -190,7 +190,7 @@ def test_kicad_export_from_mock():
 ## File Structure After All Code Written
 
 ```
-drdo-p1-parser/
+p1-parser/
 ├── src/
 │   ├── phase1_dla/       ✅ (complete)
 │   ├── phase2_tsr/
@@ -241,7 +241,7 @@ When you have Phase 2 outputs from the GPU system:
 cp -r eval/phase2/golden_phase2_outputs.json ~/phase2_results.json
 
 # On MacBook:
-scp user@lab:~/phase2_results.json drdo-p1-parser/eval/phase2/
+scp user@lab:~/phase2_results.json p1-parser/eval/phase2/
 ```
 
 ### 2. Update Phase 3 tests
@@ -262,7 +262,7 @@ with open("eval/phase2/golden_phase2_outputs.json") as f:
 
 ### 3. Run full pipeline
 ```bash
-cd drdo-p1-parser && source venv/bin/activate
+cd p1-parser && source venv/bin/activate
 
 # Full 4-phase pipeline on 1 component:
 python -c "

@@ -126,13 +126,13 @@ src/phase4_validate/
 **In your lab, on the GPU machine:**
 
 ```bash
-cd drdo-p1-parser && source venv/bin/activate
+cd p1-parser && source venv/bin/activate
 
 # Run Phase 2 once
 python eval/phase2/run_eval.py --corpus corpus/golden --save-outputs
 
 # Copy outputs back to MacBook
-scp eval/phase2/golden_phase2_outputs.json user@macbook:drdo-p1-parser/eval/phase2/
+scp eval/phase2/golden_phase2_outputs.json user@macbook:p1-parser/eval/phase2/
 ```
 
 **Back on MacBook:**
@@ -181,7 +181,7 @@ python eval/phase4/run_eval.py --corpus corpus/golden --full-pipeline
 
 **Phase 2 unit tests:**
 ```bash
-cd drdo-p1-parser && source venv/bin/activate
+cd p1-parser && source venv/bin/activate
 pytest tests/unit/test_phase2_*.py -v
 ```
 
@@ -208,7 +208,7 @@ When you have real Phase 2 outputs from the lab:
 
 **1. Copy outputs:**
 ```bash
-scp user@lab:drdo-p1-parser/eval/phase2/golden_phase2_outputs.json ./eval/phase2/
+scp user@lab:p1-parser/eval/phase2/golden_phase2_outputs.json ./eval/phase2/
 ```
 
 **2. Update test imports (one line per test file):**

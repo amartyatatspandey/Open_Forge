@@ -1,6 +1,6 @@
 # Automated Datasheet Parsing Pipeline
 
-**Project:** AI-Driven EDA Tool Integration (SSPL DRDO)
+**Project:** AI-Driven EDA Tool Integration (Open Forge)
 **Objective:** Extract highly accurate, structured, machine-readable electronic component data from heterogeneous PDF datasheets (e.g., Texas Instruments) to feed downstream AI layout generation.
 
 ---
@@ -288,7 +288,7 @@ Phase 4 Validation → passed=True, review_required=False (0.91 > threshold 0.85
 KiCad MCP Server ✅
 ```
 
-> **This is especially critical for air-gapped DRDO deployments** where you cannot re-query a cloud API on failure. The confidence field makes uncertainty explicit rather than hidden.
+> **This is especially critical for air-gapped deployments** where you cannot re-query a cloud API on failure. The confidence field makes uncertainty explicit rather than hidden.
 
 ---
 

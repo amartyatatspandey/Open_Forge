@@ -161,7 +161,7 @@ Without metrics, "defense-grade accuracy" is unverifiable. Define before coding:
 Proposed layout to assess and adopt:
 
 ```
-drdo-p1-parser/
+p1-parser/
 ├── src/
 │   ├── phase1_dla/          # layout detection, cropping, footnote_map
 │   ├── phase2_tsr/          # vector path, vlm path, confidence scorer

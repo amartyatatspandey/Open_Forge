@@ -10,8 +10,8 @@
 cd /path/to/workspace
 
 # Create project root
-mkdir drdo-p1-parser
-cd drdo-p1-parser
+mkdir p1-parser
+cd p1-parser
 
 # Create all directories
 mkdir -p src/{phase1_dla,phase2_tsr,phase3_extract,phase4_validate,utils}
@@ -52,10 +52,10 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "drdo-p1-parser"
+name = "p1-parser"
 version = "0.1.0"
 description = "Automated datasheet parsing pipeline for air-gapped defense EDA"
-authors = [{name = "DRDO Team", email = "team@drdo.gov.in"}]
+authors = [{name = "Open Forge Team", email = "contributors@openforge.dev"}]
 readme = "README.md"
 requires-python = ">=3.9"
 
@@ -100,8 +100,8 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/drdo/p1-parser"
-Documentation = "https://github.com/drdo/p1-parser/blob/main/README.md"
+Repository = "https://github.com/amartyatatspandey/Open_Forge"
+Documentation = "https://github.com/amartyatatspandey/Open_Forge/blob/main/README.md"
 
 [tool.black]
 line-length = 100
@@ -800,7 +800,7 @@ git commit -m "Initial commit: Project structure, config, schemas, logging
 - Add first unit test (schema validation)"
 
 # (Optional) Add remote
-git remote add origin https://github.com/drdo/p1-parser.git
+git remote add origin https://github.com/amartyatatspandey/Open_Forge.git
 ```
 
 ---
@@ -821,8 +821,8 @@ git remote add origin https://github.com/drdo/p1-parser.git
 
 ```bash
 # Clone and navigate
-git clone https://github.com/drdo/p1-parser.git
-cd drdo-p1-parser
+git clone https://github.com/amartyatatspandey/Open_Forge.git
+cd p1-parser
 
 # Create virtual environment
 python -m venv venv
@@ -921,7 +921,7 @@ See [CODING_STANDARDS_P1.md](CODING_STANDARDS_P1.md) for details.
 
 ```bash
 # Verify directory structure
-find drdo-p1-parser -type f -name "*.py" | head -20
+find p1-parser -type f -name "*.py" | head -20
 
 # Verify imports work
 python -c "from src.config import Config; from src.schemas import ExtractedValue; print('✅ Imports OK')"

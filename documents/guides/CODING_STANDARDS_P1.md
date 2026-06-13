@@ -10,7 +10,7 @@
 
 ### Recommended Layout
 ```
-drdo-p1-parser/
+p1-parser/
 ├── src/
 │   ├── __init__.py                 # Package marker (always include)
 │   ├── config.py                   # ⭐ SINGLE SOURCE OF TRUTH for settings
@@ -790,7 +790,7 @@ Functions:
 
 ```bash
 # Clone and install
-git clone https://github.com/drdo/p1-parser.git
+git clone https://github.com/amartyatatspandey/Open_Forge.git
 cd p1-parser
 
 # Set up environment

@@ -1,12 +1,12 @@
-# DRDO P1 — Documents Index
+# Open Forge P1 — Documents Index
 
-Central documentation for the SSPL DRDO datasheet parser (Problem 1).
+Central documentation for the Open Forge datasheet parser (Problem 1).
 
 ## Start here
 
 | Document | Purpose |
 |---|---|
-| [objectives.md](objectives.md) | Six formal DRDO problem statements |
+| [objectives.md](objectives.md) | Six formal problem statements |
 | [architecture/PROJECT_CONTEXT.md](architecture/PROJECT_CONTEXT.md) | **Living project status** — phase dashboard, update on every milestone |
 | [assessments/p1_assessment_filled.md](assessments/p1_assessment_filled.md) | **Authoritative spec** — schema, models, metrics, phased plan |
 
@@ -15,7 +15,7 @@ Central documentation for the SSPL DRDO datasheet parser (Problem 1).
 ```
 documents/
 ├── README.md                          ← this index
-├── objectives.md                      ← DRDO problem statements (P1–P6)
+├── objectives.md                      ← problem statements (P1–P6)
 ├── assessments/
 │   ├── p1_assessment.md               ← template (superseded by _filled)
 │   └── p1_assessment_filled.md        ← authoritative P1 assessment
@@ -42,5 +42,5 @@ documents/
 
 ## Phase 1 eval
 
-- Live results: [`../drdo-p1-parser/eval/phase1/PHASE1_RESULTS.md`](../drdo-p1-parser/eval/phase1/PHASE1_RESULTS.md)
+- Live results: [`../p1-parser/eval/phase1/PHASE1_RESULTS.md`](../p1-parser/eval/phase1/PHASE1_RESULTS.md)
 - Tuning methodology: [phase1/PHASE1_CORPUS_EVAL_TUNING_LOG.md](phase1/PHASE1_CORPUS_EVAL_TUNING_LOG.md)

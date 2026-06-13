@@ -2,7 +2,7 @@
 
 ## Context
 
-You are implementing **Phase 2: Table Structure Recognition (TSR)** for the DRDO P1 Datasheet Parser. Your goal is to extract table grid structure (cell coordinates, row/column boundaries) from cropped table images.
+You are implementing **Phase 2: Table Structure Recognition (TSR)** for the Open Forge P1 Datasheet Parser. Your goal is to extract table grid structure (cell coordinates, row/column boundaries) from cropped table images.
 
 **Authority documents (read these first):**
 - `documents/p1_assessment_filled.md` — full spec
@@ -534,7 +534,7 @@ When you run Phase 2 on the GPU system:
 
 ```bash
 # In your lab on GPU machine
-cd drdo-p1-parser && source venv/bin/activate
+cd p1-parser && source venv/bin/activate
 python eval/phase2/run_eval.py --corpus corpus/golden --save-outputs
 
 # Output: eval/phase2/golden_phase2_outputs.json

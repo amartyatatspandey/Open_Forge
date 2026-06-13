@@ -66,7 +66,7 @@
 | Bad ❌ | Good ✅ |
 |--------|---------|
 | `# Hope it works` | **tests/unit/test_unit_normalizer.py:**<br>`def test_mv_to_v():`<br>`  value, unit = normalize_unit("3300", "mV", "voltage")`<br>`  assert value == 3.3`<br>`  assert unit == "V"`<br><br>`pytest tests/unit/`  |
-| Code ships to DRDO untested | Every change verified before commit ✅ |
+| Code ships to production untested | Every change verified before commit ✅ |
 
 ---
 

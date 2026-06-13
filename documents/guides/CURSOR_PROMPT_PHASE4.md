@@ -2,7 +2,7 @@
 
 ## Context
 
-You are implementing **Phase 4: Physics Validation & KiCad Export** for the DRDO P1 Datasheet Parser. Your goal is to validate extracted electrical data against physical plausibility rules, flag anomalies, and export to KiCad-compatible JSON format.
+You are implementing **Phase 4: Physics Validation & KiCad Export** for the Open Forge P1 Datasheet Parser. Your goal is to validate extracted electrical data against physical plausibility rules, flag anomalies, and export to KiCad-compatible JSON format.
 
 **Authority documents:**
 - `documents/p1_assessment_filled.md` — full spec (§4 Phase 4, cross-param rules, abs-max rules, sanity ranges, routing logic)
