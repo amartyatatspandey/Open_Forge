@@ -1,6 +1,8 @@
 # P1 Datasheet Parser
 
-> **Living status:** [`../documents/architecture/PROJECT_CONTEXT.md`](../documents/architecture/PROJECT_CONTEXT.md) — update on every phase completion.
+> **Legacy prototype** — canonical P1 code is now at [`src/datasheet/`](../../src/datasheet/) in the repo root. See [`../README.md`](../README.md).
+
+> **Living status:** [`../../documents/architecture/PROJECT_CONTEXT.md`](../../documents/architecture/PROJECT_CONTEXT.md) — update on every phase completion.
 
 Automated datasheet parsing pipeline for air-gapped PCB design systems (Open Forge).
 

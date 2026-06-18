@@ -1,0 +1,130 @@
+{
+  "component_id": "TLV7021DBVR",
+  "manufacturer": "Texas Instruments",
+  "package": "SOT-23-5",
+  "datasheet_version": "SLVSBU4D",
+  "extraction_timestamp": "2025-07-15T10:15:00Z",
+  "sections": [
+    {
+      "section_type": "absolute_maximum_ratings",
+      "section_heading": "6.1 Absolute Maximum Ratings",
+      "page_range": [4, 4],
+      "table_confidence": 0.96,
+      "parameters": [],
+      "abs_max_ratings": [
+        {
+          "name": "V_CC_ABS",
+          "max_value": {
+            "raw_text": "6",
+            "value": 6.0,
+            "unit": "V",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "unit": "V",
+          "note": "Stresses beyond these ratings may cause permanent damage."
+        }
+      ],
+      "pins": []
+    },
+    {
+      "section_type": "electrical_characteristics",
+      "section_heading": "7.5 Electrical Characteristics",
+      "page_range": [5, 6],
+      "table_confidence": 0.94,
+      "parameters": [
+        {
+          "name": "V_CC",
+          "parameter_type": "voltage",
+          "min_value": {
+            "raw_text": "1.8",
+            "value": 1.8,
+            "unit": "V",
+            "confidence": 0.97,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "typ_value": null,
+          "max_value": {
+            "raw_text": "5.5",
+            "value": 5.5,
+            "unit": "V",
+            "confidence": 0.97,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "T_A = -40°C to +125°C"
+        },
+        {
+          "name": "V_IT-",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "2.93",
+            "value": 2.93,
+            "unit": "V",
+            "confidence": 0.94,
+            "source": "manual_review",
+            "footnote": "Typical threshold, TLV702133 variant"
+          },
+          "max_value": null,
+          "conditions": "V_CC = 3.3 V nominal"
+        }
+      ],
+      "abs_max_ratings": [],
+      "pins": []
+    },
+    {
+      "section_type": "pinout",
+      "section_heading": "5 Pin Configuration and Functions",
+      "page_range": [3, 3],
+      "table_confidence": 0.99,
+      "parameters": [],
+      "abs_max_ratings": [],
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "RESET",
+          "pin_type": "digital_output",
+          "alternate_functions": [],
+          "description": "Active-low reset output, open-drain"
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "GND",
+          "pin_type": "ground",
+          "alternate_functions": [],
+          "description": "Ground"
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "MR",
+          "pin_type": "digital_input",
+          "alternate_functions": [],
+          "description": "Manual reset input, active low"
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "V_CC",
+          "pin_type": "power",
+          "alternate_functions": [],
+          "description": "Supply voltage"
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "SENSE",
+          "pin_type": "analog_input",
+          "alternate_functions": [],
+          "description": "Voltage sense input"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "review_required": false
+  }
+}

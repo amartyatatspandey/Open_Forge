@@ -1,6 +1,6 @@
 # Phase 1 Golden Corpus Eval — Tuning Log
 
-**Project:** `p1-parser/`  
+**Project:** `prototypes/p1-parser/`  
 **Date:** 2026-06-12  
 **Author:** Implementation session (Cursor)  
 **Status:** Exit gate **5/5 PASS** — golden corpus eval complete  
@@ -35,7 +35,7 @@ A component **passes** only if **all four** metrics meet targets:
 
 ## 2. Current results snapshot
 
-Source: [`p1-parser/eval/phase1/PHASE1_RESULTS.md`](../../p1-parser/eval/phase1/PHASE1_RESULTS.md)
+Source: [`prototypes/p1-parser/eval/phase1/PHASE1_RESULTS.md`](../../prototypes/p1-parser/eval/phase1/PHASE1_RESULTS.md)
 
 | Component | Recall | Precision | Footnote | Section Acc | Pass |
 |---|---|---|---|---|---|
@@ -51,7 +51,7 @@ Source: [`p1-parser/eval/phase1/PHASE1_RESULTS.md`](../../p1-parser/eval/phase1/
 
 ## 3. Pipeline layers (where tuning applies)
 
-Order of execution in [`src/phase1_dla/runner.py`](../../p1-parser/src/phase1_dla/runner.py):
+Order of execution in [`src/phase1_dla/runner.py`](../../prototypes/p1-parser/src/phase1_dla/runner.py):
 
 ```
 PDF
@@ -70,7 +70,7 @@ PDF
   → Phase1Output
 ```
 
-Config knobs: [`p1-parser/configs/default.yaml`](../../p1-parser/configs/default.yaml) → `phase1_dla:`
+Config knobs: [`prototypes/p1-parser/configs/default.yaml`](../../prototypes/p1-parser/configs/default.yaml) → `phase1_dla:`
 
 Current values:
 
@@ -90,7 +90,7 @@ phase1_dla:
     other: 0
 ```
 
-Eval matching: [`eval/phase1/metrics.py`](../../p1-parser/eval/phase1/metrics.py) — `PAGE_MATCH_SLACK = 3` (PDF index vs printed page offset).
+Eval matching: [`eval/phase1/metrics.py`](../../prototypes/p1-parser/eval/phase1/metrics.py) — `PAGE_MATCH_SLACK = 3` (PDF index vs printed page offset).
 
 ---
 
@@ -346,7 +346,7 @@ For approval transparency:
 ### D. GT annotation consistency
 
 - Align all golden `page_range` values to **PDF page index** (1-based from `pdfplumber`) rather than printed footer page numbers
-- Document offset in [`corpus/golden/CORPUS_MANIFEST.md`](../../p1-parser/corpus/golden/CORPUS_MANIFEST.md)
+- Document offset in [`corpus/golden/CORPUS_MANIFEST.md`](../../prototypes/p1-parser/corpus/golden/CORPUS_MANIFEST.md)
 
 ---
 
@@ -409,6 +409,6 @@ All 5 components: 100% recall, 100% precision, 100% footnote recall, 100% sectio
 | [`phase1/CURSOR_PROMPT_PHASE1.md`](CURSOR_PROMPT_PHASE1.md) | Original implementation spec |
 | [`assessments/p1_assessment_filled.md`](../assessments/p1_assessment_filled.md) | Authoritative metrics targets §3 |
 | [`architecture/PROJECT_CONTEXT.md`](../architecture/PROJECT_CONTEXT.md) | Living phase dashboard |
-| [`p1-parser/eval/phase1/run_eval.py`](../../p1-parser/eval/phase1/run_eval.py) | Eval runner |
-| [`p1-parser/eval/phase1/metrics.py`](../../p1-parser/eval/phase1/metrics.py) | Metric definitions |
-| [`p1-parser/eval/phase1/PHASE1_RESULTS.md`](../../p1-parser/eval/phase1/PHASE1_RESULTS.md) | Latest eval output |
+| [`prototypes/p1-parser/eval/phase1/run_eval.py`](../../prototypes/p1-parser/eval/phase1/run_eval.py) | Eval runner |
+| [`prototypes/p1-parser/eval/phase1/metrics.py`](../../prototypes/p1-parser/eval/phase1/metrics.py) | Metric definitions |
+| [`prototypes/p1-parser/eval/phase1/PHASE1_RESULTS.md`](../../prototypes/p1-parser/eval/phase1/PHASE1_RESULTS.md) | Latest eval output |

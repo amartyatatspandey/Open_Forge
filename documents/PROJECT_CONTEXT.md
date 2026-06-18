@@ -14,8 +14,8 @@
 | **Updated by** | All model weights verified |
 | **Current phase** | Phase 0 — substantially complete; **Phase 1 DLA is next** |
 | **Active work** | Model spike re-run; Phase 1 implementation |
-| **Repo root** | `open_forge/` |
-| **Code root** | `p1-parser/` |
+| **Repo root** | repo root (`open_forge/`) |
+| **Code root** | `src/` (canonical); legacy prototype at `prototypes/prototypes/p1-parser/` |
 
 ### Phase dashboard
 
@@ -99,7 +99,7 @@ Read in this order when implementing:
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Project scaffold (`pyproject.toml`, dirs, venv) | ✅ | `p1-parser/` |
+| Project scaffold (`pyproject.toml`, dirs, venv) | ✅ | `prototypes/p1-parser/` |
 | `src/config.py` + `configs/default.yaml` | ✅ | Locked model paths, thresholds |
 | `src/schemas/datasheet.py` (output contract) | ✅ | `ComponentDatasheet`, etc. |
 | `src/schemas/pipeline.py` (inter-phase models) | ✅ | `GridMatrix`, `Phase1Output`, … |
@@ -202,7 +202,7 @@ Read in this order when implementing:
 
 ## 6. Code inventory
 
-### Implemented (`p1-parser/src/`)
+### Implemented (`prototypes/p1-parser/src/`)
 
 ```
 src/
@@ -247,7 +247,7 @@ corpus/golden/validate_ground_truth.py
 
 ## 7. Model & corpus status
 
-### Model weights (`p1-parser/models/`)
+### Model weights (`prototypes/p1-parser/models/`)
 
 | Model | Path | Status | Size |
 |-------|------|--------|------|
@@ -333,7 +333,7 @@ open_forge/
 │   ├── problem_1_solution.md
 │   ├── CODING_STANDARDS_P1.md
 │   └── objectives.md
-└── p1-parser/
+└── prototypes/p1-parser/
     ├── src/
     ├── corpus/golden/              # 5 PDFs + 5 ground_truth JSON
     ├── corpus/test/                # 25 PDFs (TODO)

@@ -1,0 +1,171 @@
+{
+  "component_id": "INA219AIDCNR",
+  "manufacturer": "Texas Instruments",
+  "package": "SOT-23-8",
+  "datasheet_version": "SBOS473G",
+  "extraction_timestamp": "2025-07-15T10:30:00Z",
+  "sections": [
+    {
+      "section_type": "absolute_maximum_ratings",
+      "section_heading": "6.1 Absolute Maximum Ratings",
+      "page_range": [4, 4],
+      "table_confidence": 0.97,
+      "parameters": [],
+      "abs_max_ratings": [
+        {
+          "name": "V_S",
+          "max_value": {
+            "raw_text": "26",
+            "value": 26.0,
+            "unit": "V",
+            "confidence": 0.98,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "unit": "V",
+          "note": "Supply voltage, bus and shunt"
+        },
+        {
+          "name": "I_IN",
+          "max_value": {
+            "raw_text": "3",
+            "value": 3.0,
+            "unit": "mA",
+            "confidence": 0.96,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "unit": "mA",
+          "conditions": "Analog inputs"
+        }
+      ],
+      "pins": []
+    },
+    {
+      "section_type": "electrical_characteristics",
+      "section_heading": "6.7 Electrical Characteristics",
+      "page_range": [6, 7],
+      "table_confidence": 0.93,
+      "parameters": [
+        {
+          "name": "V_S",
+          "parameter_type": "voltage",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "3.3",
+            "value": 3.3,
+            "unit": "V",
+            "confidence": 0.95,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "5.5",
+            "value": 5.5,
+            "unit": "V",
+            "confidence": 0.95,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "T_A = 25°C"
+        },
+        {
+          "name": "I_Q",
+          "parameter_type": "current",
+          "min_value": null,
+          "typ_value": {
+            "raw_text": "1",
+            "value": 1.0,
+            "unit": "mA",
+            "confidence": 0.94,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "max_value": {
+            "raw_text": "1.5",
+            "value": 1.5,
+            "unit": "mA",
+            "confidence": 0.94,
+            "source": "manual_review",
+            "footnote": null
+          },
+          "conditions": "Quiescent current, power-down = 0"
+        }
+      ],
+      "abs_max_ratings": [],
+      "pins": []
+    },
+    {
+      "section_type": "pinout",
+      "section_heading": "5 Pin Configuration and Functions",
+      "page_range": [3, 3],
+      "table_confidence": 0.99,
+      "parameters": [],
+      "abs_max_ratings": [],
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "VIN+",
+          "pin_type": "analog_input",
+          "alternate_functions": [],
+          "description": "Positive shunt voltage input"
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "GND",
+          "pin_type": "ground",
+          "alternate_functions": [],
+          "description": "Ground"
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "VIN-",
+          "pin_type": "analog_input",
+          "alternate_functions": [],
+          "description": "Negative shunt voltage input"
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "VS",
+          "pin_type": "power",
+          "alternate_functions": [],
+          "description": "Power supply"
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "SDA",
+          "pin_type": "digital_io",
+          "alternate_functions": ["I2C_SDA"],
+          "description": "I2C data"
+        },
+        {
+          "pin_number": "6",
+          "pin_name": "SCL",
+          "pin_type": "digital_input",
+          "alternate_functions": ["I2C_SCL"],
+          "description": "I2C clock"
+        },
+        {
+          "pin_number": "7",
+          "pin_name": "A0",
+          "pin_type": "digital_input",
+          "alternate_functions": [],
+          "description": "I2C address select"
+        },
+        {
+          "pin_number": "8",
+          "pin_name": "A1",
+          "pin_type": "digital_input",
+          "alternate_functions": [],
+          "description": "I2C address select"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "review_required": false
+  }
+}

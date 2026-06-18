@@ -42,5 +42,5 @@ documents/
 
 ## Phase 1 eval
 
-- Live results: [`../p1-parser/eval/phase1/PHASE1_RESULTS.md`](../p1-parser/eval/phase1/PHASE1_RESULTS.md)
+- Live results: [`../prototypes/p1-parser/eval/phase1/PHASE1_RESULTS.md`](../prototypes/p1-parser/eval/phase1/PHASE1_RESULTS.md)
 - Tuning methodology: [phase1/PHASE1_CORPUS_EVAL_TUNING_LOG.md](phase1/PHASE1_CORPUS_EVAL_TUNING_LOG.md)

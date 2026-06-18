@@ -1,0 +1,54 @@
+# OpenForge PCB Builder - Default Configuration
+# All paths are relative to project root unless absolute
+
+# Model paths for air-gapped deployment
+model_paths:
+  qwen25_7b: "models/Qwen2.5-7B-Instruct"
+  qwen2_vl_7b: "models/Qwen2-VL-7B-Instruct"
+  yolov8n_doclaynet: "models/yolov8_doclaynets.pt"
+  locateanything_3b: "models/locateanything-3b"
+
+# Directory paths
+corpus_dir: "corpus"
+output_dir: "output"
+
+# Confidence thresholds for review queue
+confidence_thresholds:
+  bom_total: 0.85        # Total BOM confidence threshold
+  bom_component: 0.75      # Per-component confidence threshold
+  triple_min: 0.65         # Minimum triple extraction confidence
+  pin_normalization: 0.70  # Pin normalization confidence threshold
+
+# Review queue path
+review_queue_path: "output/review_queue.json"
+
+# Neo4j knowledge graph connection
+neo4j_uri: "bolt://localhost:7687"
+
+# Knowledge graph file path
+graph_path: "output/knowledge_graph.graphml"
+
+# KG query engine settings
+kg_traversal_max_depth: 4
+kg_min_edge_confidence: 0.60
+
+# Logging
+log_level: "INFO"
+
+# Additional PCB-specific settings
+pcb:
+  default_grid_size: 0.0254  # 1 mil in mm
+  max_trace_width: 10.0      # mm
+  min_trace_clearance: 0.1   # mm
+  default_copper_weight: 35  # um (1 oz)
+
+# Schematic settings
+schematic:
+  default_sheet_size: "A4"
+  title_block_template: "templates/title_block.json"
+
+# Layout settings
+layout:
+  default_board_thickness: 1.6  # mm
+  max_layer_count: 12
+  preferred_layers: 4

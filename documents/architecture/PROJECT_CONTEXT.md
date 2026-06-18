@@ -14,8 +14,8 @@
 | **Updated by** | Phase 4 validation + KiCad export implemented (FPR/FNR eval deferred) |
 | **Current phase** | Phase 4 — **implemented**; pipeline orchestrator + review queue pending |
 | **Active work** | GPU lab Phase 2 eval; grid-level golden GT; `pipeline.py` + review queue |
-| **Repo root** | `open_forge/` |
-| **Code root** | `p1-parser/` |
+| **Repo root** | repo root (`open_forge/`) |
+| **Code root** | `src/` (canonical); legacy prototype at `prototypes/prototypes/p1-parser/` |
 
 ### Phase dashboard
 
@@ -102,7 +102,7 @@ Read in this order when implementing:
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Project scaffold (`pyproject.toml`, dirs, venv) | ✅ | `p1-parser/` |
+| Project scaffold (`pyproject.toml`, dirs, venv) | ✅ | `prototypes/p1-parser/` |
 | `src/config.py` + `configs/default.yaml` | ✅ | Locked model paths, thresholds |
 | `src/schemas/datasheet.py` (output contract) | ✅ | `ComponentDatasheet`, etc. |
 | `src/schemas/pipeline.py` (inter-phase models) | ✅ | `GridMatrix`, `Phase1Output`, … |
@@ -151,7 +151,7 @@ Read in this order when implementing:
 | LM5176 | 100% | 100% | 100% | 100% |
 | TPS62933 | 100% | 100% | 100% | 100% |
 
-Report: `p1-parser/eval/phase1/PHASE1_RESULTS.md`
+Report: `prototypes/p1-parser/eval/phase1/PHASE1_RESULTS.md`
 
 ---
 
@@ -247,7 +247,7 @@ Report: `p1-parser/eval/phase1/PHASE1_RESULTS.md`
 
 ## 6. Code inventory
 
-### Implemented (`p1-parser/src/`)
+### Implemented (`prototypes/p1-parser/src/`)
 
 ```
 src/
@@ -302,7 +302,7 @@ corpus/golden/validate_ground_truth.py
 
 ## 7. Model & corpus status
 
-### Model weights (`p1-parser/models/`)
+### Model weights (`prototypes/p1-parser/models/`)
 
 | Model | Path | Status | Size |
 |-------|------|--------|------|
@@ -400,7 +400,7 @@ open_forge/
 │   └── phase1/
 │       ├── CURSOR_PROMPT_PHASE1.md
 │       └── PHASE1_CORPUS_EVAL_TUNING_LOG.md
-└── p1-parser/
+└── prototypes/p1-parser/
     ├── src/
     ├── corpus/golden/              # 5 PDFs + 5 ground_truth JSON
     ├── corpus/test/                # 25 PDFs (TODO)

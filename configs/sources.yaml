@@ -1,0 +1,25 @@
+# Application note sources for KG-2 and KG-4 ingestion
+# These PDFs are downloaded and processed to extract design recipes (KG-2)
+# and placement rules (KG-4) into the knowledge graph.
+
+app_notes:
+  - name: "TI_SLVA477B_BuckConverterDesign"
+    url: "https://www.ti.com/lit/an/slva477b/slva477b.pdf"
+    topics:
+      - "power_management"
+      - "buck_converter"
+    manufacturer: "TI"
+
+  - name: "TI_AN1294_PatchAntenna"
+    url: "https://www.ti.com/lit/an/swra118d/swra118d.pdf"
+    topics:
+      - "RF_highfreq"
+      - "antenna"
+    manufacturer: "TI"
+
+  - name: "ADI_AN_1368_GateDriver"
+    url: "https://www.analog.com/media/en/technical-documentation/application-notes/an-1368.pdf"
+    topics:
+      - "power_management"
+      - "gate_driver"
+    manufacturer: "ADI"

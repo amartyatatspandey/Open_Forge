@@ -1,2 +1,27 @@
 # Local-only development guides (not published to GitHub)
 documents/guides/
+
+# Python / tooling
+venv/
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ML artifacts (both main + prototype)
+models/
+output/
+logs/
+data/raw/*
+!data/raw/.gitkeep
+data/graph/*
+!data/graph/.gitkeep
+*.pt
+*.pth
+
+# OS / IDE
+.DS_Store
+.env

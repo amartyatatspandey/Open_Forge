@@ -1,0 +1,478 @@
+{
+    "component_id": "TI_LM5176",
+    "manufacturer": "Texas Instruments",
+    "package": "HTSSOP-28 / QFN-28",
+    "datasheet_version": "SNVSAI1D",
+    "extraction_timestamp": "2025-06-12T12:00:00Z",
+    "sections": [
+      {
+        "section_type": "absolute_maximum_ratings",
+        "section_heading": "6.3 Absolute Maximum Ratings",
+        "page_range": [5, 5],
+        "table_confidence": 0.98,
+        "parameters": [],
+        "abs_max": [
+          {
+            "name": "VIN_EN_UVLO_VISNS_VOSNS_ISNS",
+            "raw_text": "–0.3 to 60 V",
+            "max_value": { "raw_text": "60 V", "value": 60.0, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "VIN, EN/UVLO, VISNS, VOSNS, ISNS(+), ISNS(–)"
+          },
+          {
+            "name": "BIAS",
+            "raw_text": "–0.3 to 40 V",
+            "max_value": { "raw_text": "40 V", "value": 40.0, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": null
+          },
+          {
+            "name": "FB_SS_DITH_RT_SYNC_SLOPE_COMP",
+            "raw_text": "–0.3 to 3.6 V",
+            "max_value": { "raw_text": "3.6 V", "value": 3.6, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "FB, SS, DITH, RT/SYNC, SLOPE, COMP"
+          },
+          {
+            "name": "SW1_SW2",
+            "raw_text": "–1 to 60 V",
+            "max_value": { "raw_text": "60 V", "value": 60.0, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-1 V", "value": -1.0, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": null
+          },
+          {
+            "name": "SW1_SW2_transient",
+            "raw_text": "–5.0 to 65 V",
+            "max_value": { "raw_text": "65 V", "value": 65.0, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-5.0 V", "value": -5.0, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "20 ns transient"
+          },
+          {
+            "name": "VCC_MODE_PGOOD",
+            "raw_text": "–0.3 to 8.5 V",
+            "max_value": { "raw_text": "8.5 V", "value": 8.5, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "VCC, MODE, PGOOD"
+          },
+          {
+            "name": "LDRV1_LDRV2",
+            "raw_text": "–0.3 to 8.5 V",
+            "max_value": { "raw_text": "8.5 V", "value": 8.5, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": null
+          },
+          {
+            "name": "BOOT1_HDRV1_wrt_SW1",
+            "raw_text": "–0.3 to 8.5 V",
+            "max_value": { "raw_text": "8.5 V", "value": 8.5, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "BOOT1, HDRV1 with respect to SW1"
+          },
+          {
+            "name": "BOOT2_HDRV2_wrt_SW2",
+            "raw_text": "–0.3 to 8.5 V",
+            "max_value": { "raw_text": "8.5 V", "value": 8.5, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "BOOT2, HDRV2 with respect to SW2"
+          },
+          {
+            "name": "BOOT1_BOOT2_abs",
+            "raw_text": "–0.3 to 68 V",
+            "max_value": { "raw_text": "68 V", "value": 68.0, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "BOOT1, BOOT2 absolute"
+          },
+          {
+            "name": "ISNS_differential",
+            "raw_text": "–0.3 to 0.3 V",
+            "max_value": { "raw_text": "0.3 V", "value": 0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "ISNS(+) with respect to ISNS(–)"
+          },
+          {
+            "name": "CS_CSG",
+            "raw_text": "–0.3 to 0.3 V",
+            "max_value": { "raw_text": "0.3 V", "value": 0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-0.3 V", "value": -0.3, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": null
+          },
+          {
+            "name": "T_J_operating",
+            "raw_text": "–40 to 150 °C",
+            "max_value": { "raw_text": "150 °C", "value": 150.0, "unit": "°C", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-40 °C", "value": -40.0, "unit": "°C", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "Operating junction temperature"
+          },
+          {
+            "name": "T_stg",
+            "raw_text": "–65 to 150 °C",
+            "max_value": { "raw_text": "150 °C", "value": 150.0, "unit": "°C", "confidence": 0.99, "source": "vlm_path_B" },
+            "min_value": { "raw_text": "-65 °C", "value": -65.0, "unit": "°C", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "Storage temperature"
+          }
+        ]
+      },
+      {
+        "section_type": "electrical_characteristics",
+        "section_heading": "6.5 Electrical Characteristics",
+        "page_range": [6, 8],
+        "table_confidence": 0.97,
+        "parameters": [
+          {
+            "name": "IQ_shutdown",
+            "parameter_type": "current",
+            "min_value": null,
+            "typ_value": { "raw_text": "2.6 µA", "value": 0.0026, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "10 µA", "value": 0.01, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VEN/UVLO = 0 V"
+          },
+          {
+            "name": "IQ_operating",
+            "parameter_type": "current",
+            "min_value": null,
+            "typ_value": { "raw_text": "2 mA", "value": 2.0, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "4 mA", "value": 4.0, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VEN/UVLO = 2 V, VFB = 0.9 V"
+          },
+          {
+            "name": "VVCC",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "6.95 V", "value": 6.95, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "7.35 V", "value": 7.35, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "7.88 V", "value": 7.88, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "conditions": "VBIAS = 0 V, VCC open"
+          },
+          {
+            "name": "VUV_VCC",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "3.11 V", "value": 3.11, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "3.27 V", "value": 3.27, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "3.43 V", "value": 3.43, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VCC increasing"
+          },
+          {
+            "name": "VUV_VCC_hysteresis",
+            "parameter_type": "voltage",
+            "min_value": null,
+            "typ_value": { "raw_text": "176 mV", "value": 0.176, "unit": "V", "confidence": 0.96, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": null
+          },
+          {
+            "name": "IVCC_current_limit",
+            "parameter_type": "current",
+            "min_value": null,
+            "typ_value": { "raw_text": "65 mA", "value": 65.0, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "VVCC = 0 V"
+          },
+          {
+            "name": "ROUT_VCC",
+            "parameter_type": "resistance",
+            "min_value": null,
+            "typ_value": { "raw_text": "8 Ω", "value": 8.0, "unit": "Ω", "confidence": 0.96, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "16 Ω", "value": 16.0, "unit": "Ω", "confidence": 0.96, "source": "vlm_path_B" },
+            "conditions": "IVCC = 30 mA, VIN = 4 V"
+          },
+          {
+            "name": "VBIAS_switchover",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "7.25 V", "value": 7.25, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "8 V", "value": 8.0, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "8.75 V", "value": 8.75, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VIN = 24 V"
+          },
+          {
+            "name": "VEN_STBY",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "0.55 V", "value": 0.55, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "0.82 V", "value": 0.82, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "0.97 V", "value": 0.97, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "conditions": "EN/UVLO rising"
+          },
+          {
+            "name": "IEN_STBY",
+            "parameter_type": "current",
+            "min_value": { "raw_text": "1 µA", "value": 0.001, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "2 µA", "value": 0.002, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "3 µA", "value": 0.003, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VEN/UVLO = 1.1 V"
+          },
+          {
+            "name": "VEN_OP",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "1.17 V", "value": 1.17, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "1.22 V", "value": 1.22, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "1.29 V", "value": 1.29, "unit": "V", "confidence": 0.98, "source": "vlm_path_B" },
+            "conditions": "EN/UVLO rising"
+          },
+          {
+            "name": "IHYS_OP",
+            "parameter_type": "current",
+            "min_value": { "raw_text": "2.15 µA", "value": 0.00215, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "3.15 µA", "value": 0.00315, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "4.25 µA", "value": 0.00425, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VEN/UVLO = 1.5 V"
+          },
+          {
+            "name": "ISS",
+            "parameter_type": "current",
+            "min_value": { "raw_text": "3.75 µA", "value": 0.00375, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "5 µA", "value": 0.005, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "6.35 µA", "value": 0.00635, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VSS = 0 V"
+          },
+          {
+            "name": "VSS_CL",
+            "parameter_type": "voltage",
+            "min_value": null,
+            "typ_value": { "raw_text": "1.21 V", "value": 1.21, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "SS open"
+          },
+          {
+            "name": "VREF",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "0.788 V", "value": 0.788, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "0.800 V", "value": 0.800, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "0.812 V", "value": 0.812, "unit": "V", "confidence": 0.99, "source": "vlm_path_B" },
+            "conditions": "FB = COMP"
+          },
+          {
+            "name": "gmEA",
+            "parameter_type": "transconductance",
+            "min_value": null,
+            "typ_value": { "raw_text": "1.31 mS", "value": 1.31, "unit": "mS", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": null
+          },
+          {
+            "name": "ISINK_ISOURCE_COMP",
+            "parameter_type": "current",
+            "min_value": null,
+            "typ_value": { "raw_text": "280 µA", "value": 0.28, "unit": "mA", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "VFB = VREF ± 300 mV"
+          },
+          {
+            "name": "ROUT_EA",
+            "parameter_type": "resistance",
+            "min_value": null,
+            "typ_value": { "raw_text": "20 MΩ", "value": 20000000.0, "unit": "Ω", "confidence": 0.96, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": null
+          },
+          {
+            "name": "BW_EA",
+            "parameter_type": "frequency",
+            "min_value": null,
+            "typ_value": { "raw_text": "2 MHz", "value": 2.0, "unit": "MHz", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "Unity gain bandwidth"
+          },
+          {
+            "name": "IBIAS_FB",
+            "parameter_type": "current",
+            "min_value": null,
+            "typ_value": { "raw_text": "25 nA", "value": 0.000025, "unit": "mA", "confidence": 0.96, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "FB in regulation"
+          },
+          {
+            "name": "fSW_1",
+            "parameter_type": "frequency",
+            "min_value": { "raw_text": "175 kHz", "value": 0.175, "unit": "MHz", "confidence": 0.98, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "200 kHz", "value": 0.2, "unit": "MHz", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "225 kHz", "value": 0.225, "unit": "MHz", "confidence": 0.98, "source": "vlm_path_B" },
+            "conditions": "RT = 40 kΩ"
+          },
+          {
+            "name": "fSW_2",
+            "parameter_type": "frequency",
+            "min_value": { "raw_text": "350 kHz", "value": 0.35, "unit": "MHz", "confidence": 0.98, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "390 kHz", "value": 0.39, "unit": "MHz", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "430 kHz", "value": 0.43, "unit": "MHz", "confidence": 0.98, "source": "vlm_path_B" },
+            "conditions": "RT = 20 kΩ"
+          },
+          {
+            "name": "IDITHER",
+            "parameter_type": "current",
+            "min_value": null,
+            "typ_value": { "raw_text": "11 µA", "value": 0.011, "unit": "mA", "confidence": 0.96, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "Dither source/sink current"
+          },
+          {
+            "name": "VSYNC_high",
+            "parameter_type": "voltage",
+            "min_value": null,
+            "typ_value": { "raw_text": "2.1 V", "value": 2.1, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "Sync input high threshold"
+          },
+          {
+            "name": "VSYNC_low",
+            "parameter_type": "voltage",
+            "min_value": null,
+            "typ_value": { "raw_text": "1.2 V", "value": 1.2, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "Sync input low threshold"
+          },
+          {
+            "name": "VCS_BUCK_HTSSOP",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "66 mV", "value": 0.066, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "80 mV", "value": 0.080, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "94 mV", "value": 0.094, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VIN = VVISNS = 24 V, VVOSNS = 12 V, VSLOPE = 0 V, HTSSOP-28"
+          },
+          {
+            "name": "VCS_BUCK_QFN",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "60 mV", "value": 0.060, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "80 mV", "value": 0.080, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "94 mV", "value": 0.094, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VIN = VVISNS = 24 V, VVOSNS = 12 V, VSLOPE = 0 V, QFN-28"
+          },
+          {
+            "name": "VCS_BOOST_HTSSOP",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "100 mV", "value": 0.1, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "120 mV", "value": 0.12, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "140 mV", "value": 0.14, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VIN = VVISNS = 12 V, VVOSNS = 18 V, VSLOPE = 0 V, HTSSOP-28"
+          },
+          {
+            "name": "VCS_BOOST_QFN",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "96 mV", "value": 0.096, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "120 mV", "value": 0.12, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "140 mV", "value": 0.14, "unit": "V", "confidence": 0.97, "source": "vlm_path_B" },
+            "conditions": "VIN = VVISNS = 12 V, VVOSNS = 18 V, VSLOPE = 0 V, QFN-28"
+          },
+          {
+            "name": "VSNS_avg_current",
+            "parameter_type": "voltage",
+            "min_value": { "raw_text": "43 mV", "value": 0.043, "unit": "V", "confidence": 0.96, "source": "vlm_path_B" },
+            "typ_value": { "raw_text": "50 mV", "value": 0.050, "unit": "V", "confidence": 0.96, "source": "vlm_path_B" },
+            "max_value": { "raw_text": "57 mV", "value": 0.057, "unit": "V", "confidence": 0.96, "source": "vlm_path_B" },
+            "conditions": "Average current loop regulation target"
+          },
+          {
+            "name": "TSD",
+            "parameter_type": "temperature",
+            "min_value": null,
+            "typ_value": { "raw_text": "165 °C", "value": 165.0, "unit": "°C", "confidence": 0.99, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "Thermal shutdown temperature"
+          },
+          {
+            "name": "TSD_HYS",
+            "parameter_type": "temperature",
+            "min_value": null,
+            "typ_value": { "raw_text": "15 °C", "value": 15.0, "unit": "°C", "confidence": 0.99, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "Thermal shutdown hysteresis"
+          },
+          {
+            "name": "IHDRV_source",
+            "parameter_type": "current",
+            "min_value": null,
+            "typ_value": { "raw_text": "1.8 A", "value": 1800.0, "unit": "mA", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "VBOOT - VSW = 7 V, peak source"
+          },
+          {
+            "name": "IHDRV_sink",
+            "parameter_type": "current",
+            "min_value": null,
+            "typ_value": { "raw_text": "2.2 A", "value": 2200.0, "unit": "mA", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "VBOOT - VSW = 7 V, peak sink"
+          },
+          {
+            "name": "RHDRV_pullup",
+            "parameter_type": "resistance",
+            "min_value": null,
+            "typ_value": { "raw_text": "1.8 Ω", "value": 1.8, "unit": "Ω", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "VBOOT - VSW = 7 V"
+          },
+          {
+            "name": "RHDRV_pulldown",
+            "parameter_type": "resistance",
+            "min_value": null,
+            "typ_value": { "raw_text": "1.1 Ω", "value": 1.1, "unit": "Ω", "confidence": 0.97, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "VBOOT - VSW = 7 V"
+          },
+          {
+            "name": "tDT1",
+            "parameter_type": "time",
+            "min_value": null,
+            "typ_value": { "raw_text": "45 ns", "value": 45.0, "unit": "ns", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "Dead time HDRV1,2 off to LDRV1,2 on"
+          },
+          {
+            "name": "tDT2",
+            "parameter_type": "time",
+            "min_value": null,
+            "typ_value": { "raw_text": "45 ns", "value": 45.0, "unit": "ns", "confidence": 0.98, "source": "vlm_path_B" },
+            "max_value": null,
+            "conditions": "Dead time LDRV1,2 off to HDRV1,2 on"
+          }
+        ]
+      },
+      {
+        "section_type": "pinout",
+        "section_heading": "5 Pin Configuration and Functions",
+        "page_range": [3, 4],
+        "table_confidence": 0.96,
+        "parameters": [],
+        "abs_max_ratings": [],
+        "pins": []
+      }
+    ],
+    "pins": [
+      { "pin_number": "1", "pin_number_qfn": "26", "pin_name": "EN/UVLO", "pin_type": "I", "description": "Enable pin. <0.4V = shutdown. >1.22V = PWM enabled." },
+      { "pin_number": "2", "pin_number_qfn": "27", "pin_name": "VIN", "pin_type": "I/P", "description": "Input supply pin. Connect to 4.2V–55V." },
+      { "pin_number": "3", "pin_number_qfn": "28", "pin_name": "VISNS", "pin_type": "I", "description": "VIN sense input. Connect to power stage input rail." },
+      { "pin_number": "4", "pin_number_qfn": "1", "pin_name": "MODE", "pin_type": "I", "description": "Selects hiccup mode. 93.1kΩ=hiccup enabled, 200kΩ or VCC=hiccup disabled." },
+      { "pin_number": "5", "pin_number_qfn": "2", "pin_name": "DITH", "pin_type": "I", "description": "Frequency dithering. Capacitor to AGND enables ±10% frequency modulation. GND disables." },
+      { "pin_number": "6", "pin_number_qfn": "3", "pin_name": "RT/SYNC", "pin_type": "I", "description": "Switching frequency programming. External resistor to AGND sets freq 100–600kHz. Also for external sync." },
+      { "pin_number": "7", "pin_number_qfn": "4", "pin_name": "SLOPE", "pin_type": "I", "description": "Slope compensation. Capacitor to AGND provides slope compensation ramp." },
+      { "pin_number": "8", "pin_number_qfn": "5", "pin_name": "SS", "pin_type": "I", "description": "Soft-start. Capacitor to AGND programs soft-start time." },
+      { "pin_number": "9", "pin_number_qfn": "6", "pin_name": "COMP", "pin_type": "O", "description": "Error amplifier output. External RC compensation network to AGND." },
+      { "pin_number": "10", "pin_number_qfn": "7", "pin_name": "AGND", "pin_type": "G", "description": "Analog ground." },
+      { "pin_number": "11", "pin_number_qfn": "8", "pin_name": "FB", "pin_type": "I", "description": "Feedback pin for VOUT regulation. Resistor divider from output." },
+      { "pin_number": "12", "pin_number_qfn": "9", "pin_name": "VOSNS", "pin_type": "I", "description": "VOUT sense input. Connect to power stage output rail." },
+      { "pin_number": "13", "pin_number_qfn": "10", "pin_name": "ISNS(-)", "pin_type": "I", "description": "Average current sense amplifier negative input." },
+      { "pin_number": "14", "pin_number_qfn": "11", "pin_name": "ISNS(+)", "pin_type": "I", "description": "Average current sense amplifier positive input. Short to ISNS(-) to disable." },
+      { "pin_number": "15", "pin_number_qfn": "12", "pin_name": "CSG", "pin_type": "I", "description": "Negative input to PWM current sense amplifier. Connect to low-side of sense resistor." },
+      { "pin_number": "16", "pin_number_qfn": "13", "pin_name": "CS", "pin_type": "I", "description": "Positive input to PWM current sense amplifier." },
+      { "pin_number": "17", "pin_number_qfn": "14", "pin_name": "PGOOD", "pin_type": "O", "description": "Power Good open-drain output. Pulled low when FB outside -9%/+10% of VREF." },
+      { "pin_number": "18", "pin_number_qfn": "15", "pin_name": "SW2", "pin_type": "I", "description": "Boost side switching node." },
+      { "pin_number": "19", "pin_number_qfn": "16", "pin_name": "HDRV2", "pin_type": "O", "description": "High-side gate driver output for boost stage high-side MOSFET." },
+      { "pin_number": "20", "pin_number_qfn": "17", "pin_name": "BOOT2", "pin_type": "P", "description": "Bootstrap capacitor node for boost high-side driver. Capacitor from BOOT2 to SW2." },
+      { "pin_number": "21", "pin_number_qfn": "18", "pin_name": "LDRV2", "pin_type": "O", "description": "Low-side gate driver output for boost stage low-side MOSFET." },
+      { "pin_number": "22", "pin_number_qfn": "19", "pin_name": "PGND", "pin_type": "G", "description": "Power ground. High current ground for low-side gate drivers." },
+      { "pin_number": "23", "pin_number_qfn": "20", "pin_name": "VCC", "pin_type": "I/O/P", "description": "VCC bias regulator output. Connect decoupling capacitor to ground." },
+      { "pin_number": "24", "pin_number_qfn": "21", "pin_name": "BIAS", "pin_type": "I/P", "description": "Optional VCC bias input. If VBIAS > 8V, VCC regulator draws from BIAS instead of VIN." },
+      { "pin_number": "25", "pin_number_qfn": "22", "pin_name": "LDRV1", "pin_type": "O", "description": "Low-side gate driver output for buck stage low-side MOSFET." },
+      { "pin_number": "26", "pin_number_qfn": "23", "pin_name": "BOOT1", "pin_type": "P", "description": "Bootstrap capacitor node for buck high-side driver. Capacitor from BOOT1 to SW1." },
+      { "pin_number": "27", "pin_number_qfn": "24", "pin_name": "HDRV1", "pin_type": "O", "description": "High-side gate driver output for buck stage high-side MOSFET." },
+      { "pin_number": "28", "pin_number_qfn": "25", "pin_name": "SW1", "pin_type": "I", "description": "Buck side switching node." },
+      { "pin_number": "PAD", "pin_number_qfn": "PAD", "pin_name": "PowerPAD", "pin_type": "G", "description": "Solder to analog ground. Use thermal vias to PCB ground plane." }
+    ],
+    "metadata": {
+      "datasheet_id": "SNVSAI1D",
+      "revision": "D",
+      "date": "August 2021",
+      "operating_conditions": "VIN = 24V unless stated, TJ = –40°C to 125°C",
+      "footnote_map": {
+        "(1)": "Stresses beyond Absolute Maximum Ratings may cause permanent damage. These are stress ratings only and do not imply functional operation.",
+        "abs_max_note": "Exposure to abs-max-rated conditions for extended periods may affect device reliability."
+      }
+    }
+  }
