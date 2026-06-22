@@ -1,0 +1,53 @@
+# OpenForge vLLM Deployment Configuration
+# Applies when running Qwen2.5-7B-Instruct via vLLM in the lab GPU environment.
+# For local dev (MacBook M3 Pro), use llama.cpp or Ollama instead.
+# See docs/DEPLOYMENT_NOTES.md for hardware sizing and VRAM math.
+
+server:
+  model: "Qwen/Qwen2.5-7B-Instruct"
+  host: "0.0.0.0"
+  port: 8000
+
+inference:
+  # Parallelism: set to number of GPUs available
+  # Single 24GB GPU lab: tensor_parallel_size=1
+  # Future 8xH100 config: tensor_parallel_size=8
+  tensor_parallel_size: 1
+
+  # Context window: 32K is safe for Qwen2.5-7B
+  # Larger = more KV cache pressure. Do not exceed model's trained max.
+  max_model_len: 32768
+
+  # FP8 quantization for H100/A100. Use null for older GPUs.
+  # Trade-off: ~0.5-1% quality loss, ~2x throughput gain.
+  quantization: null    # set to "fp8" on H100/A100 hardware
+
+  # VRAM utilization: 0.85 leaves ~3.6GB headroom on 24GB GPU.
+  # Increase to 0.90 if OOM errors are not observed.
+  gpu_memory_utilization: 0.85
+
+  # Continuous batching: vLLM default is enabled. Do not disable.
+  # Swap space for CPU offload (GB) — increase if KV cache evictions are frequent
+  swap_space: 4
+
+priority_scheduling:
+  # GLM 7.13: priority classes for GPU scheduling
+  # P0 = interactive user queries (preempt batch jobs)
+  # P1 = batch ingestion
+  # P2 = background freshness checks
+  # P3 = embedding regeneration
+  # Implementation: use vLLM's --scheduling-policy priority when available,
+  # or route via separate queue with priority tags.
+  classes:
+    P0_interactive: {preempt: true,  max_wait_seconds: 30}
+    P1_batch:       {preempt: false, max_wait_seconds: 300}
+    P2_background:  {preempt: false, max_wait_seconds: 3600}
+    P3_regen:       {preempt: false, max_wait_seconds: 86400}
+  note: "Full scheduling implementation is post-v1. Config is a placeholder."
+
+warmup:
+  # Run this query on server start to warm KV cache and avoid cold-start latency
+  # on the first real user request
+  enabled: true
+  prompt: "Design a precision analog circuit."
+  max_tokens: 10

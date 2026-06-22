@@ -1,0 +1,123 @@
+# OpenForge Electronics Synonym Dictionary
+# Used for query expansion in vector search (Layer 3).
+# All terms are lowercased. Expansion is bidirectional:
+# if any term in a synonym group appears in the query,
+# all others are added to the expanded query.
+#
+# Format:
+#   canonical: <primary engineering term>
+#   synonyms: [list of equivalent terms]
+#
+# Add new entries as the KB grows. Keep citations where possible.
+
+synonyms:
+  - canonical: "zero drift op amp"
+    synonyms:
+      - "chopper stabilized amplifier"
+      - "auto zero amplifier"
+      - "zero drift amplifier"
+      - "chopper op amp"
+      - "autozero amplifier"
+    citation: "TI SLOA025B — Chopper-Stabilized Amplifiers"
+
+  - canonical: "low noise ldo"
+    synonyms:
+      - "low noise linear regulator"
+      - "low noise voltage regulator"
+      - "ultralow noise ldo"
+      - "quiet ldo"
+      - "low dropout regulator"
+
+  - canonical: "precision voltage reference"
+    synonyms:
+      - "bandgap reference"
+      - "voltage reference ic"
+      - "precision vref"
+      - "buried zener reference"
+      - "low drift voltage reference"
+
+  - canonical: "sense resistor"
+    synonyms:
+      - "current sense resistor"
+      - "shunt resistor"
+      - "current shunt"
+      - "ammeter shunt"
+      - "kelvin resistor"
+
+  - canonical: "switching regulator"
+    synonyms:
+      - "smps"
+      - "switch mode power supply"
+      - "buck converter"
+      - "boost converter"
+      - "dc dc converter"
+      - "switching power supply"
+
+  - canonical: "negative rail converter"
+    synonyms:
+      - "inverting charge pump"
+      - "negative voltage converter"
+      - "negative ldo"
+      - "inverting converter"
+      - "negative voltage generator"
+
+  - canonical: "power transistor"
+    synonyms:
+      - "pass transistor"
+      - "series pass element"
+      - "output transistor"
+      - "bipolar power transistor"
+      - "mosfet power switch"
+
+  - canonical: "precision resistor"
+    synonyms:
+      - "ultra precision resistor"
+      - "metal foil resistor"
+      - "low tempco resistor"
+      - "wirewound precision resistor"
+      - "vishay foil resistor"
+
+  - canonical: "compensation capacitor"
+    synonyms:
+      - "feedback capacitor"
+      - "miller capacitor"
+      - "phase compensation capacitor"
+      - "stability capacitor"
+      - "loop compensation capacitor"
+
+  - canonical: "instrumentation amplifier"
+    synonyms:
+      - "in amp"
+      - "ina"
+      - "differential amplifier ic"
+      - "three op amp instrumentation amplifier"
+
+  - canonical: "current source"
+    synonyms:
+      - "constant current source"
+      - "precision current source"
+      - "current regulator"
+      - "controlled current source"
+      - "libbrecht hall"
+
+  - canonical: "bypass capacitor"
+    synonyms:
+      - "decoupling capacitor"
+      - "supply bypass cap"
+      - "bulk capacitor"
+      - "power supply decoupling"
+      - "ceramic bypass"
+
+  - canonical: "guard ring"
+    synonyms:
+      - "guard trace"
+      - "driven shield"
+      - "leakage guard"
+      - "pcb guard ring"
+
+  - canonical: "bias tee"
+    synonyms:
+      - "rf bias tee"
+      - "dc block rf"
+      - "rf choke bias"
+      - "vco bias network"

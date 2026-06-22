@@ -10,13 +10,14 @@
 
 | Field | Value |
 |-------|-------|
-| **Last updated** | 2026-06-21 |
-| **Updated by** | Stage 2 completion engine smoke test (Entry 001 / Libbrecht-Hall prompt) |
-| **Current milestone** | Teams A–E gates implemented; **Stage 2 completion engine smoke-tested**; full E2E orchestrator + GPU eval deferred |
-| **Active work** | Improvement-plan rollout (intent schema v2, requirement completion); GPU lab VLM eval |
+| **Last updated** | 2026-06-22 |
+| **Updated by** | Stage 05 search/storage/deployment implementation |
+| **Current milestone** | Teams A–E gates implemented; **Stage 2 smoke-tested**; **Stage 3 retrieval + Stage 05 search/storage layer complete**; full E2E orchestrator + GPU eval deferred |
+| **Active work** | E2E orchestrator wiring; embedding ingestion pipeline; GPU lab VLM eval |
 | **Repo root** | `open_forge/` (package: `openforge-pcb`) |
 | **Code root** | `src/` (canonical); legacy P1 prototype at `prototypes/p1-parser/` |
 | **Unit tests** | 699 passing (`pytest tests/unit -q`) — per commit 76b78d6 |
+| **Retrieval gate tests** | 36 passing (`pytest tests/retrieval tests/db -q`) — Stage 3 + Stage 05 |
 
 ### Team dashboard
 
@@ -40,6 +41,12 @@
 | Full E2E orchestrator (prompt → fabrication files) | ⬜ | Team pipelines exist; top-level wiring pending |
 | Improvement-plan docs | ✅ | `documents/improvement_plan/` (5 architecture decisions + tscircuit loopholes) |
 | Stage 2 completion engine | 🟡 | `src/completion/` — smoke-tested on Entry 001; `tests/completion/smoke_test_real_prompts.py` 12/12 PASS |
+| PostgreSQL KB schema | ✅ | `db/migrations/001_initial_schema.sql` — pgvector `VECTOR(4096)` for Qwen3 embeddings |
+| Retrieval engine (Stage 3) | ✅ | `src/retrieval/` — 4-layer search + RRF fusion; gate tests in `tests/retrieval/` |
+| Search/storage layer (Stage 05) | ✅ | Synonym expansion, coverage reporting, model pinning, deployment docs — see `documents/guides/stage_5_Search_storage.md` |
+| Model version registry | ✅ | `config/model_versions.yaml` — pinned Qwen2.5-7B, Qwen3-Embedding-8B, Qwen2-VL, DocLayNet |
+| Deployment docs | ✅ | `docs/DEPLOYMENT_NOTES.md`, `BACKUP_STRATEGY.md`, `MODEL_COMPATIBILITY_MATRIX.md` |
+| vLLM config | ✅ | `config/vllm_config.yaml` — lab GPU deployment placeholder |
 
 ---
 
@@ -106,8 +113,9 @@ Read in this order when implementing:
 | 4 | `documents/architecture/PROJECT_CONTEXT.md` | **This file** — current status only |
 | 5 | `documents/assessments/p1_assessment_filled.md` | Authoritative P1 schema, metrics, phased plan |
 | 6 | `documents/improvement_plan/` | Next-step architectural decisions (intent schema, DB, retrieval) |
-| 7 | `documents/guides/CODING_STANDARDS_P1.md` | Code style, TDD, config patterns |
-| 8 | `documents/objectives.md` | Six formal problem statements |
+| 7 | `documents/guides/stage_5_Search_storage.md` | Stage 05 search/storage/deployment implementation spec |
+| 8 | `documents/guides/CODING_STANDARDS_P1.md` | Code style, TDD, config patterns |
+| 9 | `documents/objectives.md` | Six formal problem statements |
 
 **Legacy P1 prototype:** `prototypes/p1-parser/` — golden corpus eval history; do not extend for new features.
 
@@ -159,12 +167,33 @@ Read in this order when implementing:
 | Methodology classifier | `src/intent/methodology_classifier.py` | ✅ |
 | Ambiguity detector | `src/intent/ambiguity_detector.py` | ✅ |
 | Requirement completion engine (Stage 2) | `src/completion/engine.py`, `axiom_loader.py`, `contradiction_checker.py` | 🟡 Smoke-tested |
+| Retrieval engine (Stage 3 + 05) | `src/retrieval/` | ✅ Gate pass |
 | BOM generator | `src/bom/generator.py`, `selector.py`, `validator.py` | ✅ |
 | Supplier cache | `src/bom/supplier_cache.py` | ✅ |
 
 **Stage 2 smoke test (2026-06-21):** Against Entry 001 Libbrecht-Hall prompt (`SCIENTIFIC_PROMPT_ANALYSIS_LOG.md` Entry 003), `run_completion_engine` correctly escalated `operating_environment` and `supply_voltage` dangerous assumptions to blocking `Ambiguity` entries and set `clarification_required=True`. Harness: `tests/completion/smoke_test_real_prompts.py` (12/12 PASS).
 
 **Known gap:** `ImprovedIntentDict` v2 schema and Stage 2 not yet wired into the main intent pipeline — see `documents/improvement_plan/01_INTENT_PARSING_SCHEMA.md`, `02_REQUIREMENT_COMPLETION_ENGINE.md`.
+
+**Retrieval engine (Stage 3 + Stage 05) — 2026-06-22:**
+
+| Module | Path | Status |
+|--------|------|--------|
+| Retrieval orchestrator | `src/retrieval/engine.py` | ✅ |
+| 4-layer search + RRF fusion | `src/retrieval/search_layers.py` | ✅ |
+| Retrieval planner | `src/retrieval/planner.py` | ✅ |
+| KB client (PostgreSQL) | `src/retrieval/kb_client.py` | ✅ |
+| Query synonym expansion | `src/retrieval/query_expander.py`, `synonyms.yaml` | ✅ Stage 05 |
+| Layer 1 coverage reporter | `src/retrieval/coverage_reporter.py` | ✅ Stage 05 |
+| QA gate + freshness checker | `src/retrieval/qa_gate.py`, `freshness.py` | ✅ |
+
+**Stage 05 changes:** Embedding dimension upgraded to 4096 (`Qwen/Qwen3-Embedding-8B`). Vector search applies query-side instruction prefix only; documents encoded without prefix. `RRF_K = 60` named constant. Coverage metrics surfaced in `retrieval_metadata.coverage_reports`.
+
+**Gate:** `pytest tests/retrieval/test_retrieval.py tests/db/test_schema.py` — 36/36 PASS (mocked DB, no live PostgreSQL).
+
+**Deferred:** Embedding ingestion pipeline (`INSERT INTO component_embeddings`), runtime Qwen3 model loading in `RetrievalEngine`, wiring retrieval into BOM/synthesis E2E flow. KG semantic search (`src/knowledge_graph/semantic_search.py`) remains separate MiniLM/FAISS stack.
+
+**Guide:** `documents/guides/stage_5_Search_storage.md` · `documents/guides/atge_3_RetrievalKB_Engine.md`
 
 ---
 
@@ -217,6 +246,7 @@ src/
 ├── config.py
 ├── intent/                 # Team C — NL prompt → intent_dict
 ├── completion/             # Team C — Stage 2 requirement completion engine
+├── retrieval/              # Team C — Stage 3 KB retrieval + Stage 05 search/storage
 ├── knowledge_graph/        # Team B — KG build, query, pin normalizer, ingestion
 ├── bom/                    # Team C — BOM generation and validation
 ├── datasheet/              # Team A — P1 parser (phases 1–5) + pipeline.py
@@ -233,6 +263,8 @@ src/
 
 ```
 tests/unit/                 # 699 tests across all teams
+tests/retrieval/            # Stage 3 + Stage 05 retrieval gate tests (17 tests)
+tests/db/                   # PostgreSQL schema gate tests (19 tests)
 tests/completion/           # Stage 2 gate + smoke tests (Entry 001/002 prompts)
 tests/integration/          # (placeholder)
 eval/gates/                 # Team acceptance gates A–F
@@ -248,9 +280,13 @@ Archived standalone four-phase parser. Retained for:
 ### Config & data
 
 ```
+config/model_versions.yaml  # Pinned model registry (Stage 05)
+config/vllm_config.yaml     # vLLM lab deployment config (Stage 05)
 configs/default.yaml        # Canonical runtime config
 configs/canonical_functions.yaml
 configs/sources.yaml
+db/migrations/              # PostgreSQL schema (pgvector VECTOR(4096))
+docs/                       # Deployment notes, backup strategy, model matrix (Stage 05)
 corpus/golden/              # 5 hand-verified TI PDFs + ground_truth JSON
 data/                       # KG graph storage (gitignored runtime data)
 docker/                     # Air-gapped deployment image
@@ -272,7 +308,10 @@ cd prototypes/p1-parser && python scripts/download_models.py --all
 |-------|------|--------|
 | YOLOv8n-DocLayNet | Phase 1 DLA | ✅ Verified in prototype |
 | Qwen2-VL-7B-Instruct | Phase 2 Path B (VLM) | ✅ Verified; GPU eval deferred |
-| Qwen2.5-7B-Instruct | Phase 3 LLM + intent parser | ✅ Verified; disabled on MacBook |
+| Qwen2.5-7B-Instruct | Phase 3 LLM + intent parser + Stage 2 | ✅ Verified; disabled on MacBook |
+| Qwen/Qwen3-Embedding-8B (Q4, 4096-dim) | Layer 3 vector search | 🟡 Config pinned in `config/model_versions.yaml`; lab deployment pending |
+
+**Model pinning:** All production model versions registered in `config/model_versions.yaml`. See `docs/MODEL_COMPATIBILITY_MATRIX.md` for cloud vs local delta and validation requirements.
 
 ### Golden corpus — 5/5 complete ✅
 
@@ -302,6 +341,7 @@ High-level flow — full detail in `OPENFORGE_ARCHITECTURE.md`:
 Natural Language Prompt
     → Intent Parser (Team C) → ImprovedIntentDict
     → Requirement Completion Engine — Stage 2 (Team C)  [halt if clarification_required]
+    → Retrieval Engine — Stage 3 (Team C)  [4-layer KB search: parametric → FTS → vector → KG]
     → KG Query (Team B)
     → BOM Generator (Team C) ──[human review if confidence < 0.85]──
     → Datasheet Parser P1 phases 1–5 (Team A)
@@ -318,7 +358,8 @@ Natural Language Prompt
 | 2 Path A | pdfplumber + Camelot lattice | — |
 | 2 Path B | Qwen2-VL-7B-Instruct | LLaVA-1.6-34B |
 | 3 Extract | Qwen2.5-7B-Instruct + Instructor | Rule-based grid parsers |
-| Intent | Qwen2.5-7B-Instruct + Instructor | — |
+| Intent + Stage 2 | Qwen2.5-7B-Instruct + Instructor | — |
+| Layer 3 vector search | Qwen3-Embedding-8B (4096-dim, Q4) | Sequential load on 24GB GPU |
 
 ---
 
@@ -330,15 +371,16 @@ Natural Language Prompt
 2. **GPU lab verification** — Phase 2 VLM and Phase 3 LLM paths need GPU run with weights
 3. **Grid-level golden GT** — required for Phase 2 cell/merged-cell accuracy exit gate
 4. **Intent schema gap** — flat constraint strings block typed downstream reasoning (`improvement_plan/01`)
-5. **Storage architecture** — DB schema and search strategy documented but not implemented (`improvement_plan/04`, `05`)
+5. **Embedding ingestion** — `component_embeddings` schema ready (4096-dim); no writer pipeline yet; ANN index helper not wired
+6. **Retrieval E2E wiring** — `RetrievalEngine` not yet connected to BOM/synthesis orchestrator
 
 ### Immediate next steps (ordered)
 
-1. Wire top-level E2E orchestrator across Team C → A → B → D → E pipelines
-2. Run GPU lab eval: Phase 2 VLM + Phase 3 LLM with golden corpus
-3. Annotate grid-level golden GT for 5 components
-4. Implement improvement-plan intent schema (`01_INTENT_PARSING_SCHEMA.md`)
-5. Stand up storage layer per `04_DATABASE_SCHEMA.md`
+1. Wire top-level E2E orchestrator across Team C (intent → completion → retrieval) → A → B → D → E pipelines
+2. Build embedding ingestion pipeline to populate `component_embeddings` with Qwen3-Embedding-8B
+3. Run GPU lab eval: Phase 2 VLM + Phase 3 LLM + Qwen3 embedding model with golden corpus
+4. Annotate grid-level golden GT for 5 components
+5. Implement improvement-plan intent schema (`01_INTENT_PARSING_SCHEMA.md`)
 
 ---
 
@@ -356,8 +398,13 @@ open_forge/
 │   │   └── OPENFORGE_SUBSYSTEMS.md
 │   ├── improvement_plan/                   ← next-step architecture decisions
 │   └── assessments/p1_assessment_filled.md
+├── config/                                 # Model registry + vLLM config (Stage 05)
+├── docs/                                   # Deployment, backup, model compatibility (Stage 05)
+├── db/migrations/                          # PostgreSQL + pgvector schema
 ├── src/                                    ← canonical codebase
 ├── tests/unit/
+├── tests/retrieval/                        ← Stage 3 + Stage 05 gate tests
+├── tests/db/                               ← schema gate tests
 ├── eval/gates/                             ← team acceptance gates
 ├── corpus/golden/
 ├── docker/                                 ← air-gapped image
@@ -371,6 +418,7 @@ python3 -m venv venv && source venv/bin/activate
 pip install -e .
 
 pytest tests/unit -q
+pytest tests/retrieval tests/db -q   # Stage 3 + Stage 05 retrieval gate
 python eval/gates/team_a_gate.py   # repeat for b–f
 
 # Air-gapped Docker build (requires network)
@@ -386,6 +434,7 @@ cd prototypes/p1-parser && python eval/phase1/run_eval.py
 
 | Date | Team/Phase | Summary |
 |------|------------|---------|
+| 2026-06-22 | C / Stage 05 | Search/storage/deployment layer implemented per `documents/guides/stage_5_Search_storage.md`: pgvector `VECTOR(4096)`, synonym expansion (`query_expander.py`, `synonyms.yaml`), Layer 1 coverage reporting, Qwen3 query-prefix vector search, `RRF_K=60`, model pinning (`config/model_versions.yaml`), vLLM config, deployment docs. Gate: `pytest tests/retrieval tests/db` 36/36 PASS. |
 | 2026-06-21 | C | Stage 2 requirement completion engine smoke-tested against Entry 001 (Libbrecht-Hall). `operating_environment` and `supply_voltage` dangerous assumptions correctly escalated to blocking ambiguities; `clarification_required=True`. `tests/completion/smoke_test_real_prompts.py` 12/12 PASS. Logged in `SCIENTIFIC_PROMPT_ANALYSIS_LOG.md` Entry 003. |
 | 2026-06-20 | E, F | Team E output pipeline complete (KiCad + tscircuit serializers, doc generator). Docker air-gap image added. 699 unit tests. Team E gate 10/10. |
 | 2026-06-20 | E | tscircuit architectural loopholes documented. |

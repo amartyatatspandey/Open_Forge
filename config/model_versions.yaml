@@ -1,0 +1,43 @@
+# OpenForge Model Version Registry
+# Pin all model versions here. Never load a model by name without a version.
+# Run the golden test suite (tests/smoke/) against any model change before
+# updating a version entry. See docs/MODEL_COMPATIBILITY_MATRIX.md.
+
+models:
+  intent_parser:
+    name: "Qwen/Qwen2.5-7B-Instruct"
+    revision: "main"          # pin to a commit hash before production
+    quantization: null
+    role: "Stage 1 intent parsing and Stage 2 requirement completion"
+    validated_prompt_version: "v2.0"
+
+  multimodal_parser:
+    name: "Qwen/Qwen2-VL-7B-Instruct"
+    revision: "main"
+    quantization: null
+    role: "P1 Phase 2 — PDF table extraction from datasheet images"
+    validated_prompt_version: "v1.0"
+
+  layout_detector:
+    name: "YOLOv8n-DocLayNet"
+    revision: "main"
+    quantization: null
+    role: "P1 Phase 1 — PDF page layout analysis"
+    validated_prompt_version: null   # no prompt — deterministic model
+
+  embedding:
+    name: "Qwen/Qwen3-Embedding-8B"
+    revision: "main"
+    quantization: "Q4"         # ~5GB VRAM quantized
+    dimensions: 4096
+    query_prefix: "Instruct: Retrieve relevant electronic components and datasheets.\nQuery: "
+    doc_prefix: ""             # CRITICAL: documents encoded without prefix
+    role: "Layer 3 vector search — component and document embeddings"
+    similarity_threshold: 0.70
+    validated_on: null         # fill after first eval run
+
+# Loading strategy (sequential on single 24GB GPU):
+# Load intent_parser → run Stage 1+2 → unload → load embedding → run Layer 3
+# multimodal_parser and layout_detector loaded only during P1 ingestion pipeline
+loading_strategy: sequential
+max_vram_gb: 24
