@@ -13,7 +13,7 @@ htmlcov/
 
 # ML artifacts (both main + prototype)
 models/
-output/
+/output/
 logs/
 data/raw/*
 !data/raw/.gitkeep
