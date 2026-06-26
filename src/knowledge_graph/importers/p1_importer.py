@@ -111,6 +111,9 @@ def _create_pin_nodes(
         if pin.normalized_function is not None:
             properties["normalized_function"] = pin.normalized_function
 
+        if pin.pin_role is not None:
+            properties["pin_role"] = pin.pin_role.value
+
         if pin.pin_type is not None:
             properties["pin_type"] = pin.pin_type
 

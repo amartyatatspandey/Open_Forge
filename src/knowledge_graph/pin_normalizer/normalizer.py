@@ -17,7 +17,7 @@ from typing import TYPE_CHECKING, Optional, Tuple
 from src.knowledge_graph.pin_normalizer.context_resolver import resolve_with_context
 from src.knowledge_graph.pin_normalizer.dictionary import normalize_from_dictionary
 from src.knowledge_graph.pin_normalizer.llm_fallback import normalize_via_llm
-from src.schemas.datasheet import ComponentDatasheet, PinDefinition
+from src.schemas.datasheet import CANONICAL_TO_ROLE, ComponentDatasheet, PinDefinition, PinRole
 
 if TYPE_CHECKING:
     from src.config import Config
@@ -93,9 +93,11 @@ def _normalize_pins_in_datasheet(
 
         if canonical is not None:
             # Successful normalization
+            pin_role: Optional[PinRole] = CANONICAL_TO_ROLE.get(canonical)
             new_pin = pin.model_copy(update={
                 "normalized_function": canonical,
                 "normalization_confidence": confidence,
+                "pin_role": pin_role,
             })
             normalized_pins.append(new_pin)
             logger.debug(

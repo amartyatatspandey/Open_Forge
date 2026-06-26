@@ -72,6 +72,83 @@ EXTRACTION_METHOD_CONFIDENCE: dict[ExtractionMethod, float] = {
 }
 
 
+class PinRole(str, Enum):
+    """Closed ontology of pin roles for deterministic verification.
+
+    Every pin in the system maps to exactly one role from this set.
+    Used by the structural verifier for pin-role compatibility checking.
+    None means role could not be determined from normalized_function.
+    """
+    POWER_IN         = "power_in"      # VDD, VCC, VIN, AVDD, DVDD
+    POWER_OUT        = "power_out"     # VOUT, VO, regulated supply output
+    GROUND           = "ground"        # GND, AGND, DGND, PGND, VSS
+    SIGNAL_IN        = "signal_in"     # generic signal input
+    SIGNAL_OUT       = "signal_out"    # generic signal output
+    BIDIRECTIONAL    = "bidirectional" # SDA, IO, DATA
+    CLOCK            = "clock"         # CLK, SCLK, SCK, SCL, XIN, XOUT
+    ENABLE           = "enable"        # active-high enable
+    ENABLE_N         = "enable_n"      # active-low enable (nEN, ENB, SHDN)
+    RESET            = "reset"         # RST, RESET, nRST
+    REFERENCE        = "reference"     # REF, VREF, REFIN, REFOUT
+    SENSE_POS        = "sense_pos"     # SENSE+, INP, IN+
+    SENSE_NEG        = "sense_neg"     # SENSE-, INN, IN-
+    DIFFERENTIAL_POS = "diff_pos"      # positive differential signal
+    DIFFERENTIAL_NEG = "diff_neg"      # negative differential signal
+    CHIP_SELECT      = "chip_select"   # CS, nCS, SS, nSS
+    FEEDBACK         = "feedback"      # FB, COMP — feedback network
+    ADJUST           = "adjust"        # ADJ, SET — adjustable pin
+    INTERRUPT        = "interrupt"     # INT, nINT, IRQ
+    ANALOG_IN        = "analog_in"     # ADC input, filter input
+    ANALOG_OUT       = "analog_out"    # DAC output, filter output
+    EXPOSED_PAD      = "exposed_pad"   # EP, thermal pad
+    NC               = "nc"            # no connect
+
+
+CANONICAL_TO_ROLE: dict[str, PinRole] = {
+    # Power
+    "POWER_POSITIVE":        PinRole.POWER_OUT,
+    "POWER_INPUT":           PinRole.POWER_IN,
+    "POWER_NEGATIVE":        PinRole.POWER_IN,
+    "POWER_GROUND":          PinRole.GROUND,
+    "GROUND":                PinRole.GROUND,
+    # Enable / Reset
+    "ENABLE":                PinRole.ENABLE,
+    "ENABLE_LOW":            PinRole.ENABLE_N,
+    "RESET":                 PinRole.RESET,
+    "RESET_LOW":             PinRole.RESET,
+    # Reference / Feedback
+    "REFERENCE_VOLTAGE":     PinRole.REFERENCE,
+    "REFERENCE_INPUT":       PinRole.REFERENCE,
+    "REFERENCE_OUTPUT":      PinRole.REFERENCE,
+    "FEEDBACK":              PinRole.FEEDBACK,
+    "ADJUSTABLE":            PinRole.ADJUST,
+    # Clocks and SPI
+    "SPI_CLOCK":             PinRole.CLOCK,
+    "I2C_CLOCK":             PinRole.CLOCK,
+    "OSCILLATOR_INPUT":      PinRole.CLOCK,
+    "OSCILLATOR_OUTPUT":     PinRole.CLOCK,
+    "SPI_MOSI":              PinRole.SIGNAL_IN,
+    "SPI_MISO":              PinRole.SIGNAL_OUT,
+    "SPI_CS":                PinRole.CHIP_SELECT,
+    "CHIP_SELECT":           PinRole.CHIP_SELECT,
+    "CHIP_SELECT_LOW":       PinRole.CHIP_SELECT,
+    "I2C_DATA":              PinRole.BIDIRECTIONAL,
+    # Analog
+    "ANALOG_INPUT":          PinRole.ANALOG_IN,
+    "ANALOG_OUTPUT":         PinRole.ANALOG_OUT,
+    "DIFFERENTIAL_POSITIVE": PinRole.DIFFERENTIAL_POS,
+    "DIFFERENTIAL_NEGATIVE": PinRole.DIFFERENTIAL_NEG,
+    # Interrupt
+    "INTERRUPT":             PinRole.INTERRUPT,
+    # Miscellaneous
+    "NO_CONNECT":            PinRole.NC,
+    "EXPOSED_PAD":           PinRole.EXPOSED_PAD,
+    "GPIO":                  PinRole.BIDIRECTIONAL,
+    "UART_TX":               PinRole.SIGNAL_OUT,
+    "UART_RX":               PinRole.SIGNAL_IN,
+}
+
+
 class ExtractedValue(BaseModel):
     """Atomic value with full provenance from datasheet extraction.
 
@@ -213,6 +290,15 @@ class PinDefinition(BaseModel):
     normalized_function: Optional[str] = Field(
         default=None,
         description="Normalized net name set by P2 Phase 2 — None until normalized",
+    )
+    pin_role: Optional[PinRole] = Field(
+        default=None,
+        description=(
+            "Closed-ontology pin role derived from normalized_function. "
+            "Set by the pin normalizer alongside normalized_function. "
+            "None if normalized_function is None or unmapped. "
+            "Used by the structural verifier for role-compatibility checking."
+        ),
     )
     normalization_confidence: Optional[float] = Field(
         default=None,
@@ -415,6 +501,8 @@ __all__ = [
     "TableSectionType",
     "ExtractionMethod",
     "EXTRACTION_METHOD_CONFIDENCE",
+    "PinRole",
+    "CANONICAL_TO_ROLE",
     "ExtractedValue",
     "ElectricalParameter",
     "AbsoluteMaxRating",
