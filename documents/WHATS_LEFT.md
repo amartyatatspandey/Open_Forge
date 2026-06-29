@@ -19,14 +19,7 @@
 
 ## Tier 1 — Critical Path (blocks E2E system from running)
 
-These must be done before the system can produce any output end-to-end.
-
-| # | Task | Status | Blocks | Notes |
-|---|------|--------|--------|-------|
-| 1.2 | E2E orchestrator — wire all team pipelines into single prompt→files entry point | ⬜ Not started | First real E2E run | One Cursor prompt needed |
-| 1.3 | ImprovedIntentDict v2 migration — wire Stage 2 into main intent pipeline | ⬜ Not started | Stage 2 activation | Prompt already written; not executed |
-| 1.4 | Embedding ingestion pipeline — write ComponentDatasheet embeddings to PostgreSQL component_embeddings | ⬜ Not started | Vector search | Schema ready; no writer exists |
-| 1.5 | Wire RetrievalEngine into BOM/synthesis orchestrator | ⬜ Not started | Retrieval-grounded BOM | RetrievalEngine built; not connected |
+All Tier 1 tasks complete. E2E orchestrator path is wired end-to-end.
 
 ---
 
@@ -38,6 +31,26 @@ Modular parser backends implemented and gate-tested. Remaining work is GPU valid
 |---|------|--------|-------|
 | 2.1 | GPU lab validation — Phase 2 VLM + Phase 3 LLM with real weights | ⬜ Not started | vlm_enabled: true run on lab GPU |
 | 2.2 | Phase 3 eval harness — field_f1 ≥ 0.93 gate on 5 golden datasheets | ⬜ Not started | Needs grid-level ground truth annotation |
+
+### Parser full-scope coverage (beyond analog/power ICs)
+
+> Source: [parser_fullscope_gap_analysis.md](improvement_plan/parser_fullscope_gap_analysis.md)
+> Baseline: TI analog/power ICs, tabular data, pinouts under ~30 pins.
+> Target: MCU, digital IC, RF, sensor, power MOSFET, and related datasheet types.
+
+| # | Task | Status | Severity | Blocks | Notes |
+|---|------|--------|----------|--------|-------|
+| 2.3 | Gap 1 — Large MCU pinout tables (chunking + AF columns) | ⬜ Not started | HIGH | MCU schematic synthesis | Pin table chunking, AF0–AF15 parser, >50-row heuristic in section classifier; `prompt_templates.py`, `extractor.py` |
+| 2.4 | Gap 2 — Structured alternate-function / pin mux extraction | ⬜ Not started | HIGH | MCU net assignment | `PinDefinition` schema bump (`default_function`, `AlternateFunction`); P2 multi-function normalization; DB migration |
+| 2.5 | Gap 3 — RF parameter units and section keywords | ⬜ Not started | MEDIUM | RF methodology BOMs | Add dBm, dBc, dB, ppm to `unit_normalizer.py`; RF keywords in `section_classifier.py`; RF prompt context |
+| 2.6 | Gap 4 — Timing table vs timing diagram split | ⬜ Not started | MEDIUM | Clean MCU extraction | Phase 1 figure-vs-table split on TIMING regions; skip waveform figures to `review_flags`; Baidu OCR `type=figure` helps |
+| 2.7 | Gap 5 — Thermal data for power devices | ⬜ Not started | MEDIUM | Thermal review flags | Thermal section keywords → extraction; θJA/θJC in Phase 3 prompt; `°C/W` in unit normalizer |
+| 2.8 | Gap 6 — Connector mechanical data | 🚫 Out of scope | LOW | — | Footprint library lookup, not datasheet extraction |
+| 2.9 | Gap 7 — FPGA datasheets | 🚫 Defer v2 | LOW | — | Bank-aware pin extraction + I/O standard tables; skeleton + `review_required=True` until then |
+
+**Coverage gaps not yet in pipeline:** register maps (I2C/SPI sensors), dense timing tables on interface ICs, crystal frequency units (partial), large MCU pin counts (144+).
+
+**Maintenance follow-up:** `tests/unit/intent/test_pipeline_stage2.py` still unpacks 2-tuple from `run_intent_pipeline` — update to triple after Tier 1.5.
 
 ---
 
@@ -62,7 +75,7 @@ These improve accuracy. System runs without them but evaluation is incomplete.
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.1 | Curate 25-datasheet test corpus in corpus/test/ | ⬜ Not started | Currently 0/25 |
+| 4.1 | Curate 25-datasheet test corpus in corpus/test/ | ⬜ Not started | Currently 0/25; should span component types in gap analysis matrix (not just analog/power) |
 | 4.2 | Few-shot examples for Phase 3 extraction prompts | ⬜ Not started | See brainstorming/FEW_SHOT_PROMPT_ANALYSIS.md |
 | 4.3 | Few-shot examples for Phase 5 layout extraction prompts | ⬜ Not started | Same doc |
 | 4.4 | Pin normalizer LLM fallback few-shot examples | ⬜ Not started | Same doc |
@@ -87,6 +100,9 @@ Record every finished task here with date.
 
 | Date | Task | Notes |
 |------|------|-------|
+| 2026-06-27 | RetrievalEngine wired into intent pipeline (task 1.5) | Stage 2.5 _run_retrieval; triple return; generate_bom stub kwarg; 8/8 gate tests |
+| 2026-06-27 | Stage 2 wired into intent pipeline (task 1.3) | _run_stage2 + Gate 2 in run_intent_pipeline; 7/7 gate tests |
+| 2026-06-27 | E2E orchestrator — src/orchestrator.py + 8/8 gate tests | run_e2e() wires Teams A–E; never raises |
 | 2026-06-27 | PARSER_P1 — Backend interfaces + registry | Gate-tested in Cursor |
 | 2026-06-27 | PARSER_P2 — YOLOv8 LayoutDetectorBackend | Gate-tested in Cursor |
 | 2026-06-27 | PARSER_P3 — PaddleOCR ImageTableBackend | Gate-tested in Cursor |
@@ -114,5 +130,10 @@ Format: `YYYY-MM-DD | action | what changed | why`
 
 | Date | Action | What | Why |
 |------|--------|------|-----|
+| 2026-06-27 | ADDED | Parser full-scope gaps 2.3–2.9 from gap analysis | Track MCU/RF/thermal coverage beyond analog/power baseline |
+| 2026-06-27 | COMPLETED | RetrievalEngine BOM wiring (task 1.5) | tier_1.5_prompt implemented; 8/8 unit gate tests pass; orchestrator triple unpack |
+| 2026-06-27 | COMPLETED | Embedding ingestion pipeline (task 1.4) | tier_1.4_prompt implemented; 10/10 unit gate tests pass |
+| 2026-06-27 | COMPLETED | Stage 2 intent pipeline wiring (task 1.3) | tier_1.3_prompt implemented; 7/7 unit gate tests pass |
+| 2026-06-27 | COMPLETED | E2E orchestrator (task 1.2) — src/orchestrator.py | Tier 1 prompt implemented; 8/8 unit gate tests pass |
 | 2026-06-27 | COMPLETED | PARSER_P1–P8 executed and gate-tested in Cursor | User confirmed all 8 parser phases done |
 | 2026-06-27 | CREATED | Initial version of WHATS_LEFT.md | First creation during document reorganisation |

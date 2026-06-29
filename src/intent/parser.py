@@ -437,7 +437,7 @@ def parse_intent(
         flag.blocking for flag in ambiguity_flags
     )
 
-    # Step 6: Construct IntentDict
+    # Step 6: Construct ImprovedIntentDict
     return ImprovedIntentDict(
         goal=cleaned_goal,
         frequency=parsed.frequency,

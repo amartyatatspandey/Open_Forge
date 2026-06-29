@@ -9,10 +9,11 @@ from __future__ import annotations
 import logging
 import uuid
 from datetime import datetime, timezone
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
 if TYPE_CHECKING:
     from src.config import Config
+    from src.retrieval.schemas import RetrievalResult
     from src.schemas.intent import IntentDict, ValidatedBOM
     from src.schemas.kg import DesignSubgraph
 
@@ -23,6 +24,7 @@ def generate_bom(
     subgraph: DesignSubgraph,
     intent: IntentDict,
     config: Config,
+    retrieval_result: Optional["RetrievalResult"] = None,
 ) -> ValidatedBOM:
     """Generate a ValidatedBOM from a KG design subgraph.
     
